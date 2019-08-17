@@ -17,7 +17,8 @@ namespace LTT.Areas.Backend
             context.MapRoute(
                 "Backend_default",
                 "Backend/{controller}/{action}/{id}",
-                new { action = "Index", controller = "Home", id = UrlParameter.Optional }
+                new { action = "Index", controller = "Home", id = UrlParameter.Optional },
+                new[] { "LTT.Areas.Backend.Controllers" }
             );
         }
     }
