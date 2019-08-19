@@ -1,68 +1,121 @@
+CREATE DATABASE LTT
+GO
+USE LTT
 
-CREATE TABLE `catalogs` (
-  `id` int(11) NOT NULL,
-  `catalogname` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
-  `catalogtype_id` int(11) NOT NULL,
-  `created_at` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  `updated_at` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  `notes` text COLLATE utf8_unicode_ci,
-  `catalogstatus` int(1) DEFAULT '1'
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+CREATE TABLE categories(
+ id int primary key,
+ cateroryName varchar(255) not null,
+ notes text,
+ categoryStatus bit
+)
+go
+CREATE TABLE categoryProduct(
+ id int primary key,
+ categoryProductName varchar(255) not null,
+ notes text,
+ categoryId int foreign key references categories(id),
+ categoryStatus bit
+)
+GO
+CREATE TABLE oder(
+ id int primary key,
+ codeOder varchar(50) not null,
+ codeProduct varchar(50) not null,
+ userName nvarchar(250) not null,
+ cartStatus bit
+)
+go
+CREATE TABLE oderDetail(
+ id int primary key,
+ codeOder varchar(50) not null,
+ codeProduct varchar(50) not null,
+ productName nvarchar(250) not null,
+ userName nvarchar(250) not null,
+ productDescription nvarchar(250) not null,
+ productImage nvarchar(250) not null,
+ video nvarchar(250),
+ price float not null,
+ quantity int not null,
+ detail ntext,
+ oderId int foreign key references oder(id)
+)
+go
+CREATE TABLE products(
+ id int primary key,
+ productName nvarchar(250)not null,
+ codeProduct varchar(50) not null,
+ productDescription nvarchar(250) not null,
+ productImage nvarchar(250) not null,
+ video nvarchar(250),
+ price float not null,
+ quantity int not null,
+ detail ntext,
+ categoryProductId int foreign key references categoryProduct(id),
+ oderId int foreign key references oder(id)
 
-CREATE TABLE `catalogtypes` (
-  `id` int(11) NOT NULL,
-  `catalogtypename` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
-  `created_at` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  `updated_at` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  `notes` text COLLATE utf8_unicode_ci,
-  `catalogtypestatus` int(1) DEFAULT '1'
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+)
+go
+CREATE TABLE news(
+ id int primary key,
+ productName nvarchar(250) not null,
+ codeProduct varchar(50) not null,
+ [description] nvarchar(250) not null,
+ [image] nvarchar(250) not null,
+ video nvarchar(250),
+ detail ntext
+)
+go
+CREATE TABLE shop(
+ id int primary key,
+ [description] nvarchar(250),
+ [image] nvarchar(250),
+ video nvarchar(250),
+ detail ntext
+)
+CREATE TABLE users (
+  id int primary key,
+  email varchar(255) not null,
+  password varchar(255) not null,
+  name varchar(255) not null,
+  userAvatar varchar(255) not null ,
+  userBirthday date DEFAULT NULL,
+  userGender bit,
+  userIdCard varchar(20) not null,
+  userPhone varchar(20) not null,
+  userAddress text,
+  notes text,
+  userLevel bit,
+  userStatus bit
+)
+GO
+CREATE TABLE typeareas (
+  id int primary key,
+  typeAreaName varchar(255) not null,
+  notes text,
+  typeAreaStatus bit
+)
+GO
+CREATE TABLE provinces (
+  id int primary key,
+  provinceName varchar(255) not null,
+  typeArea_id int not null,
+  provinceStatus bit
+)
+GO
+CREATE TABLE districts (
+  id int primary key,
+  districtName varchar(255) not null,
+  typeArea_id int not null,
+  province_id int not null,
+  districtStatus bit
+)
+GO
+CREATE TABLE wards (
+  id int primary key,
+  wardName varchar(255) not null,
+  typeArea_id int not null,
+  district_id int not null,
+  wardStatus bit
+)
+GO
 
-CREATE TABLE `users` (
-  `id` int(11) NOT NULL,
-  `remember_token` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `email` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
-  `password` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
-  `name` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
-  `useravatar` varchar(255) COLLATE utf8_unicode_ci NOT NULL DEFAULT 'user.jpg',
-  `userbirthday` date DEFAULT NULL,
-  `usergender` int(1) NOT NULL DEFAULT '1',
-  `useridcard` varchar(20) COLLATE utf8_unicode_ci NOT NULL,
-  `userphone` varchar(20) COLLATE utf8_unicode_ci NOT NULL,
-  `useraddress` text COLLATE utf8_unicode_ci,
-  `created_at` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  `updated_at` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  `notes` text COLLATE utf8_unicode_ci,
-  `userlevel` int(11) NOT NULL DEFAULT '0',
-  `userstatus` int(1) NOT NULL DEFAULT '1'
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
-
-CREATE TABLE `typeareas` (
-  `id` int(11) NOT NULL,
-  `typeareaname` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
-  `notes` text COLLATE utf8_unicode_ci,
-  `typeareastatus` int(1) NOT NULL DEFAULT '1'
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
-
-CREATE TABLE `provinces` (
-  `id` int(11) NOT NULL,
-  `provincename` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
-  `typearea_id` int(11) NOT NULL,
-  `provincestatus` int(1) NOT NULL DEFAULT '1'
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
-
-CREATE TABLE `districts` (
-  `id` int(11) NOT NULL,
-  `districtname` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
-  `typearea_id` int(11) NOT NULL,
-  `province_id` int(11) NOT NULL,
-  `districtstatus` int(1) NOT NULL DEFAULT '1'
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
-
-CREATE TABLE `wards` (
-  `id` int(11) NOT NULL,
-  `wardname` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
-  `typearea_id` int(11) NOT NULL,
-  `district_id` int(11) NOT NULL,
-  `wardstatus` int(1) NOT NULL DEFAULT '1'
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
