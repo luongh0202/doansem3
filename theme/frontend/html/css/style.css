@@ -6443,3 +6443,11 @@ abbr.required {
 }
 
 /*# sourceMappingURL=style.css.map */
+
+.center_custom {
+  display: flex;
+  justify-content: center;
+}
+.center_custom .col-sm-offset-1 {
+  margin: auto;
+}
