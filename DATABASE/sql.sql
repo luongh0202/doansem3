@@ -22,7 +22,7 @@ CREATE TABLE oder(
  codeOder varchar(50) not null,
  codeProduct varchar(50) not null,
  userName nvarchar(250) not null,
- cartStatus bit
+ odertStatus bit
 )
 go
 CREATE TABLE oderDetail(
@@ -82,6 +82,9 @@ CREATE TABLE users (
   userGender bit,
   userIdCard varchar(20) not null,
   userPhone varchar(20) not null,
+  userProvince text,
+  userDistricts text,
+  userWard text,
   userAddress text,
   notes text,
   userLevel bit,

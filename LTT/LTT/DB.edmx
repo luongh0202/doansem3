@@ -1,0 +1,638 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="LTTModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="categories">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" Nullable="false" />
+          <Property Name="cateroryName" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="notes" Type="text" />
+          <Property Name="categoryStatus" Type="bit" />
+        </EntityType>
+        <EntityType Name="categoryProduct">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" Nullable="false" />
+          <Property Name="categoryProductName" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="notes" Type="text" />
+          <Property Name="categoryId" Type="int" />
+          <Property Name="categoryStatus" Type="bit" />
+        </EntityType>
+        <EntityType Name="districts">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" Nullable="false" />
+          <Property Name="districtName" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="typeArea_id" Type="int" Nullable="false" />
+          <Property Name="province_id" Type="int" Nullable="false" />
+          <Property Name="districtStatus" Type="bit" />
+        </EntityType>
+        <EntityType Name="news">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" Nullable="false" />
+          <Property Name="productName" Type="nvarchar" MaxLength="250" Nullable="false" />
+          <Property Name="codeProduct" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="description" Type="nvarchar" MaxLength="250" Nullable="false" />
+          <Property Name="image" Type="nvarchar" MaxLength="250" Nullable="false" />
+          <Property Name="video" Type="nvarchar" MaxLength="250" />
+          <Property Name="detail" Type="ntext" />
+        </EntityType>
+        <EntityType Name="oder">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" Nullable="false" />
+          <Property Name="codeOder" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="codeProduct" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="userName" Type="nvarchar" MaxLength="250" Nullable="false" />
+          <Property Name="cartStatus" Type="bit" />
+        </EntityType>
+        <EntityType Name="oderDetail">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" Nullable="false" />
+          <Property Name="codeOder" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="codeProduct" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="productName" Type="nvarchar" MaxLength="250" Nullable="false" />
+          <Property Name="userName" Type="nvarchar" MaxLength="250" Nullable="false" />
+          <Property Name="productDescription" Type="nvarchar" MaxLength="250" Nullable="false" />
+          <Property Name="productImage" Type="nvarchar" MaxLength="250" Nullable="false" />
+          <Property Name="video" Type="nvarchar" MaxLength="250" />
+          <Property Name="price" Type="float" Nullable="false" />
+          <Property Name="quantity" Type="int" Nullable="false" />
+          <Property Name="detail" Type="ntext" />
+          <Property Name="oderId" Type="int" />
+        </EntityType>
+        <EntityType Name="products">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" Nullable="false" />
+          <Property Name="productName" Type="nvarchar" MaxLength="250" Nullable="false" />
+          <Property Name="codeProduct" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="productDescription" Type="nvarchar" MaxLength="250" Nullable="false" />
+          <Property Name="productImage" Type="nvarchar" MaxLength="250" Nullable="false" />
+          <Property Name="video" Type="nvarchar" MaxLength="250" />
+          <Property Name="price" Type="float" Nullable="false" />
+          <Property Name="quantity" Type="int" Nullable="false" />
+          <Property Name="detail" Type="ntext" />
+          <Property Name="categoryProductId" Type="int" />
+          <Property Name="oderDetailId" Type="int" />
+        </EntityType>
+        <EntityType Name="provinces">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" Nullable="false" />
+          <Property Name="provinceName" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="typeArea_id" Type="int" Nullable="false" />
+          <Property Name="provinceStatus" Type="bit" />
+        </EntityType>
+        <EntityType Name="shop">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" Nullable="false" />
+          <Property Name="description" Type="nvarchar" MaxLength="250" />
+          <Property Name="image" Type="nvarchar" MaxLength="250" />
+          <Property Name="video" Type="nvarchar" MaxLength="250" />
+          <Property Name="detail" Type="ntext" />
+        </EntityType>
+        <EntityType Name="typeareas">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" Nullable="false" />
+          <Property Name="typeAreaName" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="notes" Type="text" />
+          <Property Name="typeAreaStatus" Type="bit" />
+        </EntityType>
+        <EntityType Name="users">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" Nullable="false" />
+          <Property Name="email" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="password" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="name" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="userAvatar" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="userBirthday" Type="date" />
+          <Property Name="userGender" Type="bit" />
+          <Property Name="userIdCard" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="userPhone" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="userAddress" Type="text" />
+          <Property Name="notes" Type="text" />
+          <Property Name="userLevel" Type="bit" />
+          <Property Name="userStatus" Type="bit" />
+        </EntityType>
+        <EntityType Name="wards">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" Nullable="false" />
+          <Property Name="wardName" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="typeArea_id" Type="int" Nullable="false" />
+          <Property Name="district_id" Type="int" Nullable="false" />
+          <Property Name="wardStatus" Type="bit" />
+        </EntityType>
+        <Association Name="FK__categoryP__categ__1273C1CD">
+          <End Role="categories" Type="Self.categories" Multiplicity="0..1" />
+          <End Role="categoryProduct" Type="Self.categoryProduct" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="categories">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="categoryProduct">
+              <PropertyRef Name="categoryId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__oderDetai__oderI__173876EA">
+          <End Role="oder" Type="Self.oder" Multiplicity="0..1" />
+          <End Role="oderDetail" Type="Self.oderDetail" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="oder">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="oderDetail">
+              <PropertyRef Name="oderId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__products__catego__1A14E395">
+          <End Role="categoryProduct" Type="Self.categoryProduct" Multiplicity="0..1" />
+          <End Role="products" Type="Self.products" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="categoryProduct">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="products">
+              <PropertyRef Name="categoryProductId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__products__oderDe__1B0907CE">
+          <End Role="oderDetail" Type="Self.oderDetail" Multiplicity="0..1" />
+          <End Role="products" Type="Self.products" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="oderDetail">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="products">
+              <PropertyRef Name="oderDetailId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="LTTModelStoreContainer">
+          <EntitySet Name="categories" EntityType="Self.categories" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="categoryProduct" EntityType="Self.categoryProduct" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="districts" EntityType="Self.districts" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="news" EntityType="Self.news" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="oder" EntityType="Self.oder" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="oderDetail" EntityType="Self.oderDetail" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="products" EntityType="Self.products" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="provinces" EntityType="Self.provinces" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="shop" EntityType="Self.shop" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="typeareas" EntityType="Self.typeareas" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="users" EntityType="Self.users" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="wards" EntityType="Self.wards" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK__categoryP__categ__1273C1CD" Association="Self.FK__categoryP__categ__1273C1CD">
+            <End Role="categories" EntitySet="categories" />
+            <End Role="categoryProduct" EntitySet="categoryProduct" />
+          </AssociationSet>
+          <AssociationSet Name="FK__oderDetai__oderI__173876EA" Association="Self.FK__oderDetai__oderI__173876EA">
+            <End Role="oder" EntitySet="oder" />
+            <End Role="oderDetail" EntitySet="oderDetail" />
+          </AssociationSet>
+          <AssociationSet Name="FK__products__catego__1A14E395" Association="Self.FK__products__catego__1A14E395">
+            <End Role="categoryProduct" EntitySet="categoryProduct" />
+            <End Role="products" EntitySet="products" />
+          </AssociationSet>
+          <AssociationSet Name="FK__products__oderDe__1B0907CE" Association="Self.FK__products__oderDe__1B0907CE">
+            <End Role="oderDetail" EntitySet="oderDetail" />
+            <End Role="products" EntitySet="products" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="LTTModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="category">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" />
+          <Property Name="cateroryName" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="notes" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="categoryStatus" Type="Boolean" />
+          <NavigationProperty Name="categoryProducts" Relationship="Self.FK__categoryP__categ__1273C1CD" FromRole="categories" ToRole="categoryProduct" />
+        </EntityType>
+        <EntityType Name="categoryProduct">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" />
+          <Property Name="categoryProductName" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="notes" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="categoryId" Type="Int32" />
+          <Property Name="categoryStatus" Type="Boolean" />
+          <NavigationProperty Name="category" Relationship="Self.FK__categoryP__categ__1273C1CD" FromRole="categoryProduct" ToRole="categories" />
+          <NavigationProperty Name="products" Relationship="Self.FK__products__catego__1A14E395" FromRole="categoryProduct" ToRole="products" />
+        </EntityType>
+        <EntityType Name="district">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" />
+          <Property Name="districtName" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="typeArea_id" Type="Int32" Nullable="false" />
+          <Property Name="province_id" Type="Int32" Nullable="false" />
+          <Property Name="districtStatus" Type="Boolean" />
+        </EntityType>
+        <EntityType Name="news">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" />
+          <Property Name="productName" Type="String" MaxLength="250" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="codeProduct" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="description" Type="String" MaxLength="250" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="image" Type="String" MaxLength="250" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="video" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="detail" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="oder">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" />
+          <Property Name="codeOder" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="codeProduct" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="userName" Type="String" MaxLength="250" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="cartStatus" Type="Boolean" />
+          <NavigationProperty Name="oderDetails" Relationship="Self.FK__oderDetai__oderI__173876EA" FromRole="oder" ToRole="oderDetail" />
+        </EntityType>
+        <EntityType Name="oderDetail">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" />
+          <Property Name="codeOder" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="codeProduct" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="productName" Type="String" MaxLength="250" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="userName" Type="String" MaxLength="250" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="productDescription" Type="String" MaxLength="250" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="productImage" Type="String" MaxLength="250" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="video" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="price" Type="Double" Nullable="false" />
+          <Property Name="quantity" Type="Int32" Nullable="false" />
+          <Property Name="detail" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="oderId" Type="Int32" />
+          <NavigationProperty Name="oder" Relationship="Self.FK__oderDetai__oderI__173876EA" FromRole="oderDetail" ToRole="oder" />
+          <NavigationProperty Name="products" Relationship="Self.FK__products__oderDe__1B0907CE" FromRole="oderDetail" ToRole="products" />
+        </EntityType>
+        <EntityType Name="product">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" />
+          <Property Name="productName" Type="String" MaxLength="250" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="codeProduct" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="productDescription" Type="String" MaxLength="250" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="productImage" Type="String" MaxLength="250" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="video" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="price" Type="Double" Nullable="false" />
+          <Property Name="quantity" Type="Int32" Nullable="false" />
+          <Property Name="detail" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="categoryProductId" Type="Int32" />
+          <Property Name="oderDetailId" Type="Int32" />
+          <NavigationProperty Name="categoryProduct" Relationship="Self.FK__products__catego__1A14E395" FromRole="products" ToRole="categoryProduct" />
+          <NavigationProperty Name="oderDetail" Relationship="Self.FK__products__oderDe__1B0907CE" FromRole="products" ToRole="oderDetail" />
+        </EntityType>
+        <EntityType Name="province">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" />
+          <Property Name="provinceName" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="typeArea_id" Type="Int32" Nullable="false" />
+          <Property Name="provinceStatus" Type="Boolean" />
+        </EntityType>
+        <EntityType Name="shop">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" />
+          <Property Name="description" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="image" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="video" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="detail" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="typearea">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" />
+          <Property Name="typeAreaName" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="notes" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="typeAreaStatus" Type="Boolean" />
+        </EntityType>
+        <EntityType Name="user">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" />
+          <Property Name="email" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="password" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="name" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="userAvatar" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="userBirthday" Type="DateTime" Precision="0" />
+          <Property Name="userGender" Type="Boolean" />
+          <Property Name="userIdCard" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="userPhone" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="userAddress" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="notes" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="userLevel" Type="Boolean" />
+          <Property Name="userStatus" Type="Boolean" />
+        </EntityType>
+        <EntityType Name="ward">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" />
+          <Property Name="wardName" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="typeArea_id" Type="Int32" Nullable="false" />
+          <Property Name="district_id" Type="Int32" Nullable="false" />
+          <Property Name="wardStatus" Type="Boolean" />
+        </EntityType>
+        <Association Name="FK__categoryP__categ__1273C1CD">
+          <End Role="categories" Type="Self.category" Multiplicity="0..1" />
+          <End Role="categoryProduct" Type="Self.categoryProduct" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="categories">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="categoryProduct">
+              <PropertyRef Name="categoryId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__products__catego__1A14E395">
+          <End Role="categoryProduct" Type="Self.categoryProduct" Multiplicity="0..1" />
+          <End Role="products" Type="Self.product" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="categoryProduct">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="products">
+              <PropertyRef Name="categoryProductId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__oderDetai__oderI__173876EA">
+          <End Role="oder" Type="Self.oder" Multiplicity="0..1" />
+          <End Role="oderDetail" Type="Self.oderDetail" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="oder">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="oderDetail">
+              <PropertyRef Name="oderId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__products__oderDe__1B0907CE">
+          <End Role="oderDetail" Type="Self.oderDetail" Multiplicity="0..1" />
+          <End Role="products" Type="Self.product" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="oderDetail">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="products">
+              <PropertyRef Name="oderDetailId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="LTTEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="categories" EntityType="Self.category" />
+          <EntitySet Name="categoryProducts" EntityType="Self.categoryProduct" />
+          <EntitySet Name="districts" EntityType="Self.district" />
+          <EntitySet Name="news" EntityType="Self.news" />
+          <EntitySet Name="oders" EntityType="Self.oder" />
+          <EntitySet Name="oderDetails" EntityType="Self.oderDetail" />
+          <EntitySet Name="products" EntityType="Self.product" />
+          <EntitySet Name="provinces" EntityType="Self.province" />
+          <EntitySet Name="shops" EntityType="Self.shop" />
+          <EntitySet Name="typeareas" EntityType="Self.typearea" />
+          <EntitySet Name="users" EntityType="Self.user" />
+          <EntitySet Name="wards" EntityType="Self.ward" />
+          <AssociationSet Name="FK__categoryP__categ__1273C1CD" Association="Self.FK__categoryP__categ__1273C1CD">
+            <End Role="categories" EntitySet="categories" />
+            <End Role="categoryProduct" EntitySet="categoryProducts" />
+          </AssociationSet>
+          <AssociationSet Name="FK__products__catego__1A14E395" Association="Self.FK__products__catego__1A14E395">
+            <End Role="categoryProduct" EntitySet="categoryProducts" />
+            <End Role="products" EntitySet="products" />
+          </AssociationSet>
+          <AssociationSet Name="FK__oderDetai__oderI__173876EA" Association="Self.FK__oderDetai__oderI__173876EA">
+            <End Role="oder" EntitySet="oders" />
+            <End Role="oderDetail" EntitySet="oderDetails" />
+          </AssociationSet>
+          <AssociationSet Name="FK__products__oderDe__1B0907CE" Association="Self.FK__products__oderDe__1B0907CE">
+            <End Role="oderDetail" EntitySet="oderDetails" />
+            <End Role="products" EntitySet="products" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="LTTModelStoreContainer" CdmEntityContainer="LTTEntities">
+          <EntitySetMapping Name="categories">
+            <EntityTypeMapping TypeName="LTTModel.category">
+              <MappingFragment StoreEntitySet="categories">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="cateroryName" ColumnName="cateroryName" />
+                <ScalarProperty Name="notes" ColumnName="notes" />
+                <ScalarProperty Name="categoryStatus" ColumnName="categoryStatus" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="categoryProducts">
+            <EntityTypeMapping TypeName="LTTModel.categoryProduct">
+              <MappingFragment StoreEntitySet="categoryProduct">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="categoryProductName" ColumnName="categoryProductName" />
+                <ScalarProperty Name="notes" ColumnName="notes" />
+                <ScalarProperty Name="categoryId" ColumnName="categoryId" />
+                <ScalarProperty Name="categoryStatus" ColumnName="categoryStatus" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="districts">
+            <EntityTypeMapping TypeName="LTTModel.district">
+              <MappingFragment StoreEntitySet="districts">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="districtName" ColumnName="districtName" />
+                <ScalarProperty Name="typeArea_id" ColumnName="typeArea_id" />
+                <ScalarProperty Name="province_id" ColumnName="province_id" />
+                <ScalarProperty Name="districtStatus" ColumnName="districtStatus" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="news">
+            <EntityTypeMapping TypeName="LTTModel.news">
+              <MappingFragment StoreEntitySet="news">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="productName" ColumnName="productName" />
+                <ScalarProperty Name="codeProduct" ColumnName="codeProduct" />
+                <ScalarProperty Name="description" ColumnName="description" />
+                <ScalarProperty Name="image" ColumnName="image" />
+                <ScalarProperty Name="video" ColumnName="video" />
+                <ScalarProperty Name="detail" ColumnName="detail" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="oders">
+            <EntityTypeMapping TypeName="LTTModel.oder">
+              <MappingFragment StoreEntitySet="oder">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="codeOder" ColumnName="codeOder" />
+                <ScalarProperty Name="codeProduct" ColumnName="codeProduct" />
+                <ScalarProperty Name="userName" ColumnName="userName" />
+                <ScalarProperty Name="cartStatus" ColumnName="cartStatus" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="oderDetails">
+            <EntityTypeMapping TypeName="LTTModel.oderDetail">
+              <MappingFragment StoreEntitySet="oderDetail">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="codeOder" ColumnName="codeOder" />
+                <ScalarProperty Name="codeProduct" ColumnName="codeProduct" />
+                <ScalarProperty Name="productName" ColumnName="productName" />
+                <ScalarProperty Name="userName" ColumnName="userName" />
+                <ScalarProperty Name="productDescription" ColumnName="productDescription" />
+                <ScalarProperty Name="productImage" ColumnName="productImage" />
+                <ScalarProperty Name="video" ColumnName="video" />
+                <ScalarProperty Name="price" ColumnName="price" />
+                <ScalarProperty Name="quantity" ColumnName="quantity" />
+                <ScalarProperty Name="detail" ColumnName="detail" />
+                <ScalarProperty Name="oderId" ColumnName="oderId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="products">
+            <EntityTypeMapping TypeName="LTTModel.product">
+              <MappingFragment StoreEntitySet="products">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="productName" ColumnName="productName" />
+                <ScalarProperty Name="codeProduct" ColumnName="codeProduct" />
+                <ScalarProperty Name="productDescription" ColumnName="productDescription" />
+                <ScalarProperty Name="productImage" ColumnName="productImage" />
+                <ScalarProperty Name="video" ColumnName="video" />
+                <ScalarProperty Name="price" ColumnName="price" />
+                <ScalarProperty Name="quantity" ColumnName="quantity" />
+                <ScalarProperty Name="detail" ColumnName="detail" />
+                <ScalarProperty Name="categoryProductId" ColumnName="categoryProductId" />
+                <ScalarProperty Name="oderDetailId" ColumnName="oderDetailId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="provinces">
+            <EntityTypeMapping TypeName="LTTModel.province">
+              <MappingFragment StoreEntitySet="provinces">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="provinceName" ColumnName="provinceName" />
+                <ScalarProperty Name="typeArea_id" ColumnName="typeArea_id" />
+                <ScalarProperty Name="provinceStatus" ColumnName="provinceStatus" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="shops">
+            <EntityTypeMapping TypeName="LTTModel.shop">
+              <MappingFragment StoreEntitySet="shop">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="description" ColumnName="description" />
+                <ScalarProperty Name="image" ColumnName="image" />
+                <ScalarProperty Name="video" ColumnName="video" />
+                <ScalarProperty Name="detail" ColumnName="detail" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="typeareas">
+            <EntityTypeMapping TypeName="LTTModel.typearea">
+              <MappingFragment StoreEntitySet="typeareas">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="typeAreaName" ColumnName="typeAreaName" />
+                <ScalarProperty Name="notes" ColumnName="notes" />
+                <ScalarProperty Name="typeAreaStatus" ColumnName="typeAreaStatus" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="users">
+            <EntityTypeMapping TypeName="LTTModel.user">
+              <MappingFragment StoreEntitySet="users">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="email" ColumnName="email" />
+                <ScalarProperty Name="password" ColumnName="password" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="userAvatar" ColumnName="userAvatar" />
+                <ScalarProperty Name="userBirthday" ColumnName="userBirthday" />
+                <ScalarProperty Name="userGender" ColumnName="userGender" />
+                <ScalarProperty Name="userIdCard" ColumnName="userIdCard" />
+                <ScalarProperty Name="userPhone" ColumnName="userPhone" />
+                <ScalarProperty Name="userAddress" ColumnName="userAddress" />
+                <ScalarProperty Name="notes" ColumnName="notes" />
+                <ScalarProperty Name="userLevel" ColumnName="userLevel" />
+                <ScalarProperty Name="userStatus" ColumnName="userStatus" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="wards">
+            <EntityTypeMapping TypeName="LTTModel.ward">
+              <MappingFragment StoreEntitySet="wards">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="wardName" ColumnName="wardName" />
+                <ScalarProperty Name="typeArea_id" ColumnName="typeArea_id" />
+                <ScalarProperty Name="district_id" ColumnName="district_id" />
+                <ScalarProperty Name="wardStatus" ColumnName="wardStatus" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
