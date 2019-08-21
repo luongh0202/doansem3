@@ -51,7 +51,7 @@ CREATE TABLE products(
  quantity int not null,
  detail ntext,
  categoryProductId int foreign key references categoryProduct(id),
- oderId int foreign key references oder(id)
+ oderDetailId int foreign key references oderDetail(id)
 
 )
 go
