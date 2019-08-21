@@ -1250,10 +1250,10 @@
     <Content Include="Assets\img\shop\single_img_3.jpg" />
     <Content Include="Assets\img\shop\single_img_4.jpg" />
     <Content Include="Assets\img\shop\single_img_5.jpg" />
-    <Content Include="Assets\img\slider\1.jpg" />
-    <Content Include="Assets\img\slider\2.jpg" />
-    <Content Include="Assets\img\slider\3.jpg" />
-    <Content Include="Assets\img\slider\4.jpg" />
+    <Content Include="Assets\img\slider\perfurme01.jpg" />
+    <Content Include="Assets\img\slider\perfurme02.jpg" />
+    <Content Include="Assets\img\slider\perfurme03.jpg" />
+    <Content Include="Assets\img\slider\perfurme04.jpg" />
     <Content Include="Assets\img\team\team_1.jpg" />
     <Content Include="Assets\img\team\team_2.jpg" />
     <Content Include="Assets\img\team\team_3.jpg" />
