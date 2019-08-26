@@ -1345,12 +1345,12 @@
     <Content Include="Scripts\popper.js.map" />
     <Content Include="Scripts\popper-utils.min.js.map" />
     <Content Include="Scripts\popper-utils.js.map" />
+    <Content Include="Views\Users\Register.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Areas\Backend\Models\" />
     <Folder Include="Areas\Backend\Views\User\" />
-    <Folder Include="Views\Users\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Assets\assetsadmin\css\includes\bootstrap-variables.less" />
@@ -1746,7 +1746,7 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\LTT.Models\LTT.Models.csproj">
-      <Project>{b655383f-0dc2-4430-8008-5b26b42092f0}</Project>
+      <Project>{03495b38-8c1b-49ec-8c77-2341fa88189b}</Project>
       <Name>LTT.Models</Name>
     </ProjectReference>
   </ItemGroup>

@@ -4,7 +4,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{B655383F-0DC2-4430-8008-5B26B42092F0}</ProjectGuid>
+    <ProjectGuid>{03495B38-8C1B-49EC-8C77-2341FA88189B}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>LTT.Models</RootNamespace>
@@ -50,21 +50,22 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="category.cs" />
-    <Compile Include="categoryProduct.cs" />
-    <Compile Include="Class1.cs" />
-    <Compile Include="district.cs" />
-    <Compile Include="Models.cs" />
-    <Compile Include="news.cs" />
-    <Compile Include="oder.cs" />
-    <Compile Include="oderDetail.cs" />
-    <Compile Include="product.cs" />
+    <Compile Include="DataModels\category.cs" />
+    <Compile Include="DataModels\categoryProduct.cs" />
+    <Compile Include="DataModels\district.cs" />
+    <Compile Include="DataModels\Model1.cs" />
+    <Compile Include="DataModels\news.cs" />
+    <Compile Include="DataModels\oder.cs" />
+    <Compile Include="DataModels\oderDetail.cs" />
+    <Compile Include="DataModels\product.cs" />
+    <Compile Include="DataModels\province.cs" />
+    <Compile Include="DataModels\shop.cs" />
+    <Compile Include="DataModels\sysdiagram.cs" />
+    <Compile Include="DataModels\typearea.cs" />
+    <Compile Include="DataModels\user.cs" />
+    <Compile Include="DataModels\ward.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="province.cs" />
-    <Compile Include="shop.cs" />
-    <Compile Include="typearea.cs" />
-    <Compile Include="user.cs" />
-    <Compile Include="ward.cs" />
+    <Compile Include="ViewModels\UserRegister.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

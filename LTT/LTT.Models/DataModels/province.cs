@@ -1,4 +1,4 @@
-namespace LTT.Models
+namespace LTT.Models.DataModels
 {
     using System;
     using System.Collections.Generic;
@@ -6,18 +6,17 @@ namespace LTT.Models
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Data.Entity.Spatial;
 
-    public partial class typearea
+    public partial class province
     {
         [DatabaseGenerated(DatabaseGeneratedOption.None)]
         public int id { get; set; }
 
         [Required]
         [StringLength(255)]
-        public string typeAreaName { get; set; }
+        public string provinceName { get; set; }
 
-        [Column(TypeName = "text")]
-        public string notes { get; set; }
+        public int typeArea_id { get; set; }
 
-        public bool? typeAreaStatus { get; set; }
+        public bool? provinceStatus { get; set; }
     }
 }

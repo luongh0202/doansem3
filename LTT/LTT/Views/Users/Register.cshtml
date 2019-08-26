@@ -1,0 +1,78 @@
+﻿@model LTT.Models.DataModels.user;
+@{
+    ViewBag.Title = "Register";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<!-- Page Title -->
+<section class="page-title text-center">
+    <div class="container relative clearfix">
+        <div class="title-holder">
+            <div class="title-text">
+                <h1 class="uppercase">Register</h1>
+            </div>
+        </div>
+    </div>
+</section> <!-- end page title -->
+<!-- login -->
+@using (Html.BeginForm)
+{
+    <section class="section-wrap login-register pt-0 pb-40">
+        <div class="container">
+            <div class="row center_custom">
+                <div class="col-sm-5">
+                    <div class="register">
+                        <p class="form-row form-row-wide">
+                            <label>
+                                email
+                                <abbr class="required" title="required">*</abbr>
+                            </label>
+                            <input type="text" class="input-text" placeholder="" value="">
+                        </p>
+                        <p class="form-row form-row-wide">
+                            <label>
+                                name
+                                <abbr class="required" title="required">*</abbr>
+                            </label>
+                            <input type="text" class="input-text" placeholder="" value="">
+                        </p>
+                        <p class="form-row form-row-wide">
+                            <label>
+                                birthday
+                                <abbr class="required" title="required">*</abbr>
+                            </label>
+                            <input type="date" class="input-text" placeholder="" value="">
+                        </p>
+                        <p class="form-row form-row-wide">
+                            <label>
+                                avatar
+                            </label>
+                            <input type="file" class="input-text" placeholder="" value="">
+                        </p>
+                        <p class="form-row form-row-wide">
+                            <label>
+                                phone
+                            </label>
+                            <input type="number" class="input-text" placeholder="" value="">
+                        </p>
+                        <p class="form-row form-row-wide">
+                            <label>
+                                password
+                                <abbr class="required" title="required">*</abbr>
+                            </label>
+                            <input type="text" class="input-text" placeholder="" value="">
+                        </p>
+                        <p class="form-row form-row-wide">
+                            <label>
+                                Re-password
+                                <abbr class="required" title="required">*</abbr>
+                            </label>
+                            <input type="text" class="input-text" placeholder="" value="">
+                        </p>
+                        <input type="submit" value="Register" class="btn">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+}
+<!-- end login -->

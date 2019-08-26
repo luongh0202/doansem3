@@ -1,4 +1,4 @@
-namespace LTT.Models
+namespace LTT.Models.DataModels
 {
     using System;
     using System.Collections.Generic;
@@ -30,12 +30,6 @@ namespace LTT.Models
         [Column(TypeName = "date")]
         public DateTime? userBirthday { get; set; }
 
-        public bool? userGender { get; set; }
-
-        [Required]
-        [StringLength(20)]
-        public string userIdCard { get; set; }
-
         [Required]
         [StringLength(20)]
         public string userPhone { get; set; }
@@ -51,11 +45,6 @@ namespace LTT.Models
 
         [Column(TypeName = "text")]
         public string userAddress { get; set; }
-
-        [Column(TypeName = "text")]
-        public string notes { get; set; }
-
-        public bool? userLevel { get; set; }
 
         public bool? userStatus { get; set; }
     }

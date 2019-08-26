@@ -1,4 +1,4 @@
-namespace LTT.Models
+namespace LTT.Models.DataModels
 {
     using System;
     using System.Collections.Generic;
