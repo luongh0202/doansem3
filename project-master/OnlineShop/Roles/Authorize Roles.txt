@@ -1,0 +1,4 @@
+http://johnatten.com/2014/06/22/asp-net-identity-2-0-customizing-users-and-roles/
+http://blog.chuyenlaptrinh.net/2017/01/series-huong-dan-su-dung-aspnet_18.html
+http://www.dotnetfunda.com/articles/show/2898/working-with-roles-in-aspnet-identity-for-mvc
+https://www.codeproject.com/Articles/799571/ASP-NET-MVC-Extending-ASP-NET-Identity-Roles

@@ -19,6 +19,8 @@ namespace LTT.Models.ViewModels
         [Required]
         public string name { get; set; }
         public string userAvatar { get; set; }
+
+        [DataType(DataType.Date)]
         public DateTime? userBirthday { get; set; }
         [Required]
         public string userPhone { get; set; }
@@ -31,5 +33,6 @@ namespace LTT.Models.ViewModels
         [Required]
         public string userAddress { get; set; }
         public bool? userStatus { get; set; }
+
     }
 }

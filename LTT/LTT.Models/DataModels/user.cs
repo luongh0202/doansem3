@@ -28,6 +28,7 @@ namespace LTT.Models.DataModels
         public string userAvatar { get; set; }
 
         [Column(TypeName = "date")]
+        [DataType(DataType.DateTime)]
         public DateTime? userBirthday { get; set; }
 
         [Required]

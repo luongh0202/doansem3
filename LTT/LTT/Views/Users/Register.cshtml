@@ -1,8 +1,10 @@
-﻿@model LTT.Models.DataModels.user;
+﻿@model LTT.Models.ViewModels.UserRegister
+
 @{
     ViewBag.Title = "Register";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
+
 <!-- Page Title -->
 <section class="page-title text-center">
     <div class="container relative clearfix">
@@ -14,7 +16,7 @@
     </div>
 </section> <!-- end page title -->
 <!-- login -->
-@using (Html.BeginForm)
+@using (Html.BeginForm())
 {
     <section class="section-wrap login-register pt-0 pb-40">
         <div class="container">
@@ -26,27 +28,31 @@
                                 email
                                 <abbr class="required" title="required">*</abbr>
                             </label>
-                            <input type="text" class="input-text" placeholder="" value="">
+                            @Html.EditorFor(model => model.email, null, new { htmlAttributes = new { @class = "input-text" } })
+                            @Html.ValidationMessageFor(model => model.email, null, new { @class = "text-danger" })
                         </p>
                         <p class="form-row form-row-wide">
                             <label>
                                 name
                                 <abbr class="required" title="required">*</abbr>
                             </label>
-                            <input type="text" class="input-text" placeholder="" value="">
+                            @Html.EditorFor(model => model.name, null, new { htmlAttributes = new { @class = "input-text" } })
+                            @Html.ValidationMessageFor(model => model.name, null, new { @class = "text-danger" })
                         </p>
                         <p class="form-row form-row-wide">
                             <label>
                                 birthday
                                 <abbr class="required" title="required">*</abbr>
                             </label>
-                            <input type="date" class="input-text" placeholder="" value="">
+                            @Html.EditorFor(model => model.userBirthday, null, new { htmlAttributes = new { type = "date", @class = "input-text" } })
+                            @Html.ValidationMessageFor(model => model.userBirthday, null, new { @class = "text-danger" })
                         </p>
                         <p class="form-row form-row-wide">
                             <label>
                                 avatar
                             </label>
-                            <input type="file" class="input-text" placeholder="" value="">
+                            @Html.EditorFor(model => model.userAvatar, new { htmlAttributes = new { @class = "form-control", type = "file" } })
+                            @Html.ValidationMessageFor(model => model.userAvatar, "", new { @class = "text-danger" })
                         </p>
                         <p class="form-row form-row-wide">
                             <label>
@@ -67,6 +73,15 @@
                                 <abbr class="required" title="required">*</abbr>
                             </label>
                             <input type="text" class="input-text" placeholder="" value="">
+                        </p>
+                        <p class="form-row form-row-wide">
+                            <label>
+                                Re-password
+                                <abbr class="required" title="required">*</abbr>
+                            </label>
+                            <input type="text" class="input-text" placeholder="" value="">
+                            @Html.DropDownListFor(model => model.userAvatar, new { htmlAttributes = new { @class = "form-control", type = "file" } })
+                            @Html.ValidationMessageFor(model => model.userAvatar, "", new { @class = "text-danger" })
                         </p>
                         <input type="submit" value="Register" class="btn">
                     </div>

@@ -1,0 +1,85 @@
+﻿@model Model.EF.User
+
+@{
+    ViewBag.Title = "Profiled";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+@section header{
+    Thông tin cá nhân}
+@section js{
+        <script src="/Assets/js/Controller/UserController.js"></script>
+    }
+<div class="row">
+    <div class="col-md-4">a</div>
+    <div class="col-md-8">
+        <div>
+            <h4>Thông tin tài khoản</h4>
+        </div>
+        <div>
+            <div style="display:flex">
+                <div class="col-md-3">
+                    <label>Tên đăng nhập</label>
+                </div>
+                <div class="col-md-9">
+                    <input class="form-control" type="text" id ="txtuser" name="txtuser" value="" disabled />
+                </div>
+            </div>
+            <div style="display:flex">
+                <div class="col-md-3">
+                    <label>Email</label>
+                </div>
+                <div class="col-md-9">
+                    <input class="form-control" type="text" name="txtemail" id="txtemail" value="" disabled />
+                </div>
+            </div>
+        </div>
+        <div>
+            <h4>Thông tin cá nhân</h4>
+        </div>
+        <div>
+            <div style="display:flex">
+                <div class="col-md-3">
+                    <label>Tên</label>
+                </div>
+                <div class="col-md-9">
+                    <input class="form-control" type="text" name="txtname" id="txtname" value="" />
+                </div>
+            </div>
+            <div style="display:flex">
+                <div class="col-md-3">
+                    <label>Giới tính</label>
+                </div>
+                <div class="col-md-9">
+                    <select class="" id="">
+
+                    </select>
+                </div>
+            </div>
+            <div style="display:flex">
+                <div class="col-md-3">
+                    <label>Ngày sinh</label>
+                </div>
+                <div id="datepicker" class="input-group date col-md-9" data-date-format="dd/mm/yyyy">
+                    <input class="form-control" type="text"> <span class="input-group-addon"><i class="glyphicon glyphicon-calendar"></i></span>
+                </div>
+            </div>
+            <div style="display:flex">
+                <div class="col-md-3">
+                    <label>Số điện thoại</label>
+                </div>
+                <div class="col-md-9">
+                    <input class="form-control" type="text" name="txtphone" id="txtphone" value="" />
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div>
+    
+    
+    
+    
+    @Html.ActionLink("Back to List", "Index")

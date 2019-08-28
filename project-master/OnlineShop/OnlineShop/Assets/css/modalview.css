@@ -1,0 +1,30 @@
+﻿@media (min-width: 576px) {
+    .modal-view{
+        max-width: 1200px;
+        width: 1100px;
+    }
+}
+.view-modal td{
+    padding: 10px;
+    
+}
+.status-active {
+    background-color: green;
+    border-radius: 5px;
+    text-align: center;
+    color: white;
+    font-weight: bold;
+}
+.status-block {
+    background-color: red;
+    border-radius: 5px;
+    text-align: center;
+    color: white;
+    font-weight: bold;
+}
+.btn-active{
+    cursor: pointer;
+}
+.calendar-footer{
+    float: left;
+}

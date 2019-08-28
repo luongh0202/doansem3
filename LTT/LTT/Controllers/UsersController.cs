@@ -1,9 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using LTT.Models.DataModels;
+using LTT.Models.ViewModels;
 
 namespace LTT.Controllers
 {
@@ -24,5 +26,17 @@ namespace LTT.Controllers
         {
             return View();
         }
+        public JsonResult GetTypeArea ()
+        {
+            Model1 db = new Model1();
+
+            return Json(db.typeareas.Select(x => new
+            {
+                typeid = x.id,
+                cityName = x.typeAreaName
+
+            }).ToList(), JsonRequestBehavior.AllowGet);
+        }
+
     }
 }

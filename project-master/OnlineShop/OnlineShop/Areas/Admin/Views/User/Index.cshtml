@@ -1,0 +1,144 @@
+﻿@model PagedList.IPagedList<Model.EF.User>
+@using PagedList.Mvc;
+
+@{
+    ViewBag.Title = "Quản lý người dùng";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+@section header{
+    Danh sách tài khoản}
+@section js{
+
+    <script src="/Assets/js/Controller/UserController.js"></script>
+    <script>
+        var model = @Html.Raw(Json.Encode(Model));
+        user.initListUsers(model);
+    </script>
+}
+@if (HttpContext.Current.Session["id"] != null)
+{
+    using (Html.BeginForm("Index", "User", FormMethod.Get))
+    {
+
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="form-group" style="display:flex;">
+                    <div class="col-md-4">
+                        <input type="text" value="@ViewBag.search" name="search" class="form-control" />
+                    </div>
+                    <div class="col-md-4">
+                        <button type="submit" class="btn btn-success">Tìm kiếm</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    }
+    <div class="row">
+        <div class="col-lg-12">
+
+
+            <div class="table-responsive">
+                <table class="table table-bordered" cellspacing="0">
+                    <thead>
+                        <tr>
+                            <th style="width:50px">UID</th>
+                            <th>Tài khoản</th>
+                            <th>Họ tên</th>
+                            <th>Địa chỉ</th>
+                            <th>Email</th>
+                            <th style="width:130px">Số điện thoại</th>
+                            <th style="width:110px">Trạng thái</th>
+                            <th style="text-align: center; width:160px"> <a href="@Url.Action("Create")" class="btn btn-primary"><i class="fas fa-edit"></i></a></th>
+                        </tr>
+                    </thead>
+
+                    <tbody>
+                        @if (Model.Count() == 0)
+                        {
+                            <tr>
+                                <td colspan="8" style="text-align:center;">Không có bản ghi nào được tìm thấy</td>
+                            </tr>
+
+                        }
+                        else
+                        {
+                            foreach (var item in Model)
+                            {
+                                <tr id="row_@item.ID" class="view-modal" data-id="@item.ID">
+                                    <td>@item.UserId</td>
+                                    <td>@item.Username</td>
+                                    <td>@item.Name</td>
+                                    <td>@item.Address</td>
+                                    <td>@item.Email</td>
+                                    <td>@item.Phone</td>
+                                    <td><p href="#" class="btn-active @(item.Status ? "status-active" : "status-block") " data-id="@item.ID">@(item.Status ? "Active" : "Block")</p></td>
+                                    <td style="text-align: center">
+                                        <a href="@Url.Action("Edit", new { @id = item.ID, page = ViewBag.CurrentPage })" class="btn btn-success"><i class="fas fa-user-edit"></i></a>
+                                        <a href="@Url.Action("EditPassword", new { @id = item.ID, page = ViewBag.CurrentPage })" class="btn btn-warning"><i class="fab fa-expeditedssl"></i></a>
+                                        
+                                        @Ajax.ActionLink(" ", "Remove", new { @id = item.ID }, new AjaxOptions
+                                   {
+                                       Confirm = "Bạn có muốn xóa?",
+                                       OnComplete = "afterRemoveItem(" + ViewBag.CurrentPage  + ", "+Model.PageNumber+"," + item.ID + ")",
+                                       OnSuccess = "",
+                                       HttpMethod = "Delete"
+                                   },
+                                       new { @class = "btn btn-danger fas fa-trash-alt"})
+                                    </td>
+                                </tr>
+                            }
+                        }
+                    </tbody>
+                </table>
+                Trang @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber)/@Model.PageCount 
+                @Html.PagedListPager(Model, page => Url.Action("Index", new { page, @search = @ViewBag.search }), new PagedListRenderOptions() { Display = PagedListDisplayMode.IfNeeded, DisplayPageCountAndCurrentLocation = false,
+               DisplayLinkToFirstPage = PagedListDisplayMode.IfNeeded,
+               DisplayLinkToLastPage = PagedListDisplayMode.IfNeeded,
+               DisplayLinkToPreviousPage = PagedListDisplayMode.IfNeeded,
+               DisplayLinkToNextPage = PagedListDisplayMode.IfNeeded,
+               LinkToFirstPageFormat = "Đầu trang",
+               LinkToPreviousPageFormat = "Trước",
+               LinkToNextPageFormat = "Sau",
+               LinkToLastPageFormat = "Cuối trang",
+               MaximumPageNumbersToDisplay = 3,
+               
+           })  
+            </div>
+
+        </div>
+
+    </div>
+}
+else
+{
+    <h3>Bạn cần phải đăng nhập</h3>
+}
+<script>
+    function afterRemoveItem(currentPage, PageIndex, item_ID) {
+        debugger
+        var setNewCurrentPage = currentPage - 1;
+        var setPageIndex = PageIndex - 1;
+        $('#row_' + item_ID).remove();
+        if (currentPage > 1) {
+            $('.pagination li:not(.PagedList-skipToPrevious)').each(function (i, ele) {
+                
+                var li = $(ele);
+                var a = li.children('a');
+                if (!a[0].hasAttribute('href')) {
+                    li.remove();
+                }
+                if (setNewCurrentPage > 0) {
+                    if (li.children('a').attr('href') == '/Admin/User?page=' + setNewCurrentPage) {
+                        li.addClass('active');
+                        li.children('a').attr('href','');
+                    }
+                }
+            });
+        }
+    }
+    //result = data e truyền theo ra
+    function getListItemAfterRemove(result) {
+
+    }
+</script>
