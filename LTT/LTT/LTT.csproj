@@ -1274,6 +1274,7 @@
     <Content Include="Assets\img\team\team_3.jpg" />
     <Content Include="Assets\img\team\team_4.jpg" />
     <Content Include="Assets\js\bootstrap.min.js" />
+    <Content Include="Assets\js\GetAddress.js" />
     <Content Include="Assets\js\gmap3.js" />
     <Content Include="Assets\js\jquery.min.js" />
     <Content Include="Assets\js\plugins.js" />
@@ -1693,6 +1694,7 @@
     <Content Include="Areas\Backend\Views\Shared\_Layout.cshtml" />
     <Content Include="Areas\Backend\Views\Home\Index.cshtml" />
     <None Include="packages.config" />
+    <Content Include="Views\Users\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <TypeScriptCompile Include="Assets\assetsadmin\lib\moment.js\moment.d.ts" />

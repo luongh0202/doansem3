@@ -6,7 +6,7 @@ namespace LTT.Models.DataModels
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Data.Entity.Spatial;
 
-    public partial class province
+    public partial class provinces
     {
         [DatabaseGenerated(DatabaseGeneratedOption.None)]
         public int id { get; set; }

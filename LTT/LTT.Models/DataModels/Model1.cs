@@ -19,7 +19,7 @@ namespace LTT.Models.DataModels
         public virtual DbSet<oder> oders { get; set; }
         public virtual DbSet<oderDetail> oderDetails { get; set; }
         public virtual DbSet<product> products { get; set; }
-        public virtual DbSet<province> provinces { get; set; }
+        public virtual DbSet<provinces> provinces { get; set; }
         public virtual DbSet<shop> shops { get; set; }
         public virtual DbSet<sysdiagram> sysdiagrams { get; set; }
         public virtual DbSet<typearea> typeareas { get; set; }
@@ -72,7 +72,7 @@ namespace LTT.Models.DataModels
                 .Property(e => e.codeProduct)
                 .IsUnicode(false);
 
-            modelBuilder.Entity<province>()
+            modelBuilder.Entity<provinces>()
                 .Property(e => e.provinceName)
                 .IsUnicode(false);
 
