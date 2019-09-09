@@ -27,21 +27,6 @@ CREATE TABLE oder(
 	odertStatus bit
 )
 go
-CREATE TABLE oderDetail(
-	id int primary key,
-	codeOder varchar(50) not null,
-	codeProduct varchar(50) not null,
-	productName nvarchar(250) not null,
-	userName nvarchar(250) not null,
-	productDescription nvarchar(250) not null,
-	productImage nvarchar(250) not null,
-	video nvarchar(250),
-	price float not null,
-	quantity int not null,
-	detail ntext,
-	oderId int foreign key references oder(id)
-)
-go
 CREATE TABLE products(
 	id int primary key,
 	productName nvarchar(250)not null,
@@ -52,8 +37,22 @@ CREATE TABLE products(
 	price float not null,
 	quantity int not null,
 	detail ntext,
-	categoryProductId int foreign key references categoryProduct(id),
-	oderDetailId int foreign key references oderDetail(id)
+	categoryProductId int foreign key references categoryProduct(id)
+)
+go
+CREATE TABLE oderDetail(
+	id int primary key,
+	codeOder varchar(50) not null,
+	detail ntext,
+	quantity int not null,
+	oderId int foreign key references oder(id),
+	productId int foreign key references products(id)
+)
+go
+CREATE TABLE brand(
+	id int primary key,
+	brandName nvarchar(250) not null,
+	productId int foreign key references products(id)
 )
 go
 CREATE TABLE news(
