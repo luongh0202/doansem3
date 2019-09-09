@@ -6,33 +6,25 @@ namespace LTT.Models.DataModels
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Data.Entity.Spatial;
 
-    [Table("oder")]
-    public partial class oder
+    [Table("role")]
+    public partial class role
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public oder()
+        public role()
         {
-            oderDetails = new HashSet<oderDetail>();
+            grouproles = new HashSet<grouprole>();
         }
 
         [DatabaseGenerated(DatabaseGeneratedOption.None)]
         public int id { get; set; }
 
         [Required]
-        [StringLength(50)]
-        public string codeOder { get; set; }
+        [StringLength(255)]
+        public string rolename { get; set; }
 
-        [Required]
-        [StringLength(50)]
-        public string codeProduct { get; set; }
-
-        [Required]
-        [StringLength(250)]
-        public string userName { get; set; }
-
-        public bool? odertStatus { get; set; }
+        public bool rolestatus { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<oderDetail> oderDetails { get; set; }
+        public virtual ICollection<grouprole> grouproles { get; set; }
     }
 }
