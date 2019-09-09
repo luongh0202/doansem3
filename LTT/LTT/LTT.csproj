@@ -145,6 +145,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Areas\Backend\BackendAreaRegistration.cs" />
     <Compile Include="Areas\Backend\Controllers\HomeController.cs" />
+    <Compile Include="Areas\Backend\Controllers\ProductController.cs" />
     <Compile Include="Areas\Backend\Controllers\UserController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\UsersController.cs" />
@@ -1693,6 +1694,7 @@
     <Content Include="Areas\Backend\Views\web.config" />
     <Content Include="Areas\Backend\Views\Shared\_Layout.cshtml" />
     <Content Include="Areas\Backend\Views\Home\Index.cshtml" />
+    <Content Include="Areas\Backend\Views\Product\Index.cshtml" />
     <None Include="packages.config" />
     <Content Include="Views\Users\Index.cshtml" />
   </ItemGroup>
@@ -1704,6 +1706,10 @@
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\LTT.BAL\LTT.BAL.csproj">
+      <Project>{d3088690-b76b-4aac-b919-640610117e0a}</Project>
+      <Name>LTT.BAL</Name>
+    </ProjectReference>
     <ProjectReference Include="..\LTT.Models\LTT.Models.csproj">
       <Project>{03495b38-8c1b-49ec-8c77-2341fa88189b}</Project>
       <Name>LTT.Models</Name>
@@ -1719,6 +1725,13 @@
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
   <Target Name="MvcBuildViews" AfterTargets="AfterBuild" Condition="'$(MvcBuildViews)'=='true'">
     <AspNetCompiler VirtualPath="temp" PhysicalPath="$(WebProjectOutputDir)" />
+  </Target>
+  <Target Name="CopyRoslynFiles" AfterTargets="AfterBuild" Condition="!$(Disable_CopyWebApplication) And '$(OutDir)' != '$(OutputPath)'">
+    <ItemGroup>
+      <RoslynFiles Include="$(CscToolPath)\*" />
+    </ItemGroup>
+    <MakeDir Directories="$(WebProjectOutputDir)\bin\roslyn" />
+    <Copy SourceFiles="@(RoslynFiles)" DestinationFolder="$(WebProjectOutputDir)\bin\roslyn" SkipUnchangedFiles="true" Retries="$(CopyRetryCount)" RetryDelayMilliseconds="$(CopyRetryDelayMilliseconds)" />
   </Target>
   <ProjectExtensions>
     <VisualStudio>

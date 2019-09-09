@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LTT", "LTT\LTT.csproj", "{B
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LTT.Models", "LTT.Models\LTT.Models.csproj", "{03495B38-8C1B-49EC-8C77-2341FA88189B}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LTT.BAL", "LTT.BAL\LTT.BAL.csproj", "{D3088690-B76B-4AAC-B919-640610117E0A}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{03495B38-8C1B-49EC-8C77-2341FA88189B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{03495B38-8C1B-49EC-8C77-2341FA88189B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{03495B38-8C1B-49EC-8C77-2341FA88189B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D3088690-B76B-4AAC-B919-640610117E0A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D3088690-B76B-4AAC-B919-640610117E0A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D3088690-B76B-4AAC-B919-640610117E0A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D3088690-B76B-4AAC-B919-640610117E0A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
