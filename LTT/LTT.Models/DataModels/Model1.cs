@@ -8,26 +8,34 @@ namespace LTT.Models.DataModels
     public partial class Model1 : DbContext
     {
         public Model1()
-            : base("name=Models")
+            : base("name=Model11")
         {
         }
 
+        public virtual DbSet<admin> admins { get; set; }
+        public virtual DbSet<business> businesses { get; set; }
         public virtual DbSet<category> categories { get; set; }
         public virtual DbSet<categoryProduct> categoryProducts { get; set; }
-        public virtual DbSet<district> districts { get; set; }
+        public virtual DbSet<grouprole> grouproles { get; set; }
+        public virtual DbSet<group> groups { get; set; }
         public virtual DbSet<news> news { get; set; }
         public virtual DbSet<oder> oders { get; set; }
         public virtual DbSet<oderDetail> oderDetails { get; set; }
         public virtual DbSet<product> products { get; set; }
-        public virtual DbSet<provinces> provinces { get; set; }
+        public virtual DbSet<role> roles { get; set; }
         public virtual DbSet<shop> shops { get; set; }
-        public virtual DbSet<sysdiagram> sysdiagrams { get; set; }
-        public virtual DbSet<typearea> typeareas { get; set; }
         public virtual DbSet<user> users { get; set; }
-        public virtual DbSet<ward> wards { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
+            modelBuilder.Entity<admin>()
+                .Property(e => e.account)
+                .IsUnicode(false);
+
+            modelBuilder.Entity<admin>()
+                .Property(e => e.password)
+                .IsUnicode(false);
+
             modelBuilder.Entity<category>()
                 .Property(e => e.cateroryName)
                 .IsUnicode(false);
@@ -42,10 +50,6 @@ namespace LTT.Models.DataModels
 
             modelBuilder.Entity<categoryProduct>()
                 .Property(e => e.notes)
-                .IsUnicode(false);
-
-            modelBuilder.Entity<district>()
-                .Property(e => e.districtName)
                 .IsUnicode(false);
 
             modelBuilder.Entity<news>()
@@ -72,18 +76,6 @@ namespace LTT.Models.DataModels
                 .Property(e => e.codeProduct)
                 .IsUnicode(false);
 
-            modelBuilder.Entity<provinces>()
-                .Property(e => e.provinceName)
-                .IsUnicode(false);
-
-            modelBuilder.Entity<typearea>()
-                .Property(e => e.typeAreaName)
-                .IsUnicode(false);
-
-            modelBuilder.Entity<typearea>()
-                .Property(e => e.notes)
-                .IsUnicode(false);
-
             modelBuilder.Entity<user>()
                 .Property(e => e.email)
                 .IsUnicode(false);
@@ -97,31 +89,11 @@ namespace LTT.Models.DataModels
                 .IsUnicode(false);
 
             modelBuilder.Entity<user>()
-                .Property(e => e.userAvatar)
-                .IsUnicode(false);
-
-            modelBuilder.Entity<user>()
                 .Property(e => e.userPhone)
                 .IsUnicode(false);
 
             modelBuilder.Entity<user>()
-                .Property(e => e.userProvince)
-                .IsUnicode(false);
-
-            modelBuilder.Entity<user>()
-                .Property(e => e.userDistricts)
-                .IsUnicode(false);
-
-            modelBuilder.Entity<user>()
-                .Property(e => e.userWard)
-                .IsUnicode(false);
-
-            modelBuilder.Entity<user>()
                 .Property(e => e.userAddress)
-                .IsUnicode(false);
-
-            modelBuilder.Entity<ward>()
-                .Property(e => e.wardName)
                 .IsUnicode(false);
         }
     }
