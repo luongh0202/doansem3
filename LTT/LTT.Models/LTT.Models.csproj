@@ -52,19 +52,20 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DataModels\admin.cs" />
+    <Compile Include="DataModels\brand.cs" />
     <Compile Include="DataModels\business.cs" />
     <Compile Include="DataModels\category.cs" />
-    <Compile Include="DataModels\categoryProduct.cs" />
     <Compile Include="DataModels\group.cs" />
     <Compile Include="DataModels\grouprole.cs" />
-    <Compile Include="DataModels\Model1.cs" />
-    <Compile Include="DataModels\news.cs" />
+    <Compile Include="DataModels\LTTDBContext.cs" />
+    <Compile Include="DataModels\new.cs" />
     <Compile Include="DataModels\oder.cs" />
     <Compile Include="DataModels\oderDetail.cs" />
     <Compile Include="DataModels\product.cs" />
     <Compile Include="DataModels\role.cs" />
     <Compile Include="DataModels\shop.cs" />
     <Compile Include="DataModels\user.cs" />
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ViewModels\UserRegister.cs" />
   </ItemGroup>

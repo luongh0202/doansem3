@@ -6,12 +6,13 @@ namespace LTT.Models.DataModels
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Data.Entity.Spatial;
 
+    [Table("category")]
     public partial class category
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public category()
         {
-            categoryProducts = new HashSet<categoryProduct>();
+            products = new HashSet<product>();
         }
 
         [DatabaseGenerated(DatabaseGeneratedOption.None)]
@@ -19,7 +20,7 @@ namespace LTT.Models.DataModels
 
         [Required]
         [StringLength(255)]
-        public string cateroryName { get; set; }
+        public string categoryName { get; set; }
 
         [Column(TypeName = "text")]
         public string notes { get; set; }
@@ -27,6 +28,6 @@ namespace LTT.Models.DataModels
         public bool? categoryStatus { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<categoryProduct> categoryProducts { get; set; }
+        public virtual ICollection<product> products { get; set; }
     }
 }

@@ -4,18 +4,10 @@ DROP DATABASE LTT
 CREATE DATABASE LTT
 GO
 USE LTT
-CREATE TABLE categories(
+CREATE TABLE category(
 	id int primary key,
 	cateroryName varchar(255) not null,
 	notes text,
-	categoryStatus bit
-)
-go
-CREATE TABLE categoryProduct(
-	id int primary key,
-	categoryProductName varchar(255) not null,
-	notes text,
-	categoryId int foreign key references categories(id),
 	categoryStatus bit
 )
 GO
@@ -37,7 +29,7 @@ CREATE TABLE products(
 	price float not null,
 	quantity int not null,
 	detail ntext,
-	categoryProductId int foreign key references categoryProduct(id)
+	categoryId int foreign key references category(id)
 )
 go
 CREATE TABLE oderDetail(
@@ -108,7 +100,7 @@ CREATE TABLE grouprole (
 	grouprolestatus bit
 )
 GO
-CREATE TABLE [admin] (
+CREATE TABLE [admins] (
 	id int primary key,
 	account varchar(255) not null,
 	UserName nvarchar(255) not null,
@@ -117,3 +109,5 @@ CREATE TABLE [admin] (
 	userStatus bit
 )
 GO
+select * from category
+select * from products

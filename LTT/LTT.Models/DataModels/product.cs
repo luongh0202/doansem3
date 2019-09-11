@@ -6,8 +6,16 @@ namespace LTT.Models.DataModels
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Data.Entity.Spatial;
 
+    [Table("product")]
     public partial class product
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public product()
+        {
+            brands = new HashSet<brand>();
+            oderDetails = new HashSet<oderDetail>();
+        }
+
         [DatabaseGenerated(DatabaseGeneratedOption.None)]
         public int id { get; set; }
 
@@ -37,12 +45,14 @@ namespace LTT.Models.DataModels
         [Column(TypeName = "ntext")]
         public string detail { get; set; }
 
-        public int? categoryProductId { get; set; }
+        public int? categoryId { get; set; }
 
-        public int? oderDetailId { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<brand> brands { get; set; }
 
-        public virtual categoryProduct categoryProduct { get; set; }
+        public virtual category category { get; set; }
 
-        public virtual oderDetail oderDetail { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<oderDetail> oderDetails { get; set; }
     }
 }

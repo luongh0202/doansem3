@@ -6,7 +6,6 @@ namespace LTT.Models.DataModels
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Data.Entity.Spatial;
 
-    [Table("admin")]
     public partial class admin
     {
         [DatabaseGenerated(DatabaseGeneratedOption.None)]
