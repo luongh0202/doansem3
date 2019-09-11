@@ -6,7 +6,7 @@ GO
 USE LTT
 CREATE TABLE category(
 	id int primary key,
-	cateroryName varchar(255) not null,
+	categoryName varchar(255) not null,
 	notes text,
 	categoryStatus bit
 )

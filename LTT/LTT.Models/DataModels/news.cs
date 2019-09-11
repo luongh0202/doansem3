@@ -6,8 +6,7 @@ namespace LTT.Models.DataModels
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Data.Entity.Spatial;
 
-    [Table("new")]
-    public partial class _new
+    public partial class news
     {
         [DatabaseGenerated(DatabaseGeneratedOption.None)]
         public int id { get; set; }

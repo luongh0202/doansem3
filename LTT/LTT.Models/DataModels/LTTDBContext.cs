@@ -16,9 +16,9 @@ namespace LTT.Models.DataModels
         public virtual DbSet<brand> brands { get; set; }
         public virtual DbSet<business> businesses { get; set; }
         public virtual DbSet<category> categories { get; set; }
-        public virtual DbSet<group> groups { get; set; }
         public virtual DbSet<grouprole> grouproles { get; set; }
-        public virtual DbSet<_new> news { get; set; }
+        public virtual DbSet<group> groups { get; set; }
+        public virtual DbSet<news> news { get; set; }
         public virtual DbSet<oder> oders { get; set; }
         public virtual DbSet<oderDetail> oderDetails { get; set; }
         public virtual DbSet<product> products { get; set; }
@@ -44,7 +44,7 @@ namespace LTT.Models.DataModels
                 .Property(e => e.notes)
                 .IsUnicode(false);
 
-            modelBuilder.Entity<_new>()
+            modelBuilder.Entity<news>()
                 .Property(e => e.codeProduct)
                 .IsUnicode(false);
 

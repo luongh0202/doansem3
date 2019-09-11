@@ -58,7 +58,7 @@
     <Compile Include="DataModels\group.cs" />
     <Compile Include="DataModels\grouprole.cs" />
     <Compile Include="DataModels\LTTDBContext.cs" />
-    <Compile Include="DataModels\new.cs" />
+    <Compile Include="DataModels\news.cs" />
     <Compile Include="DataModels\oder.cs" />
     <Compile Include="DataModels\oderDetail.cs" />
     <Compile Include="DataModels\product.cs" />
@@ -79,6 +79,7 @@
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
     <ResolveAssemblyReferenceIgnoreTargetFrameworkAttributeVersionMismatch>true</ResolveAssemblyReferenceIgnoreTargetFrameworkAttributeVersionMismatch>
