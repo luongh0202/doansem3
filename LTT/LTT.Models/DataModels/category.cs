@@ -6,28 +6,25 @@ namespace LTT.Models.DataModels
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Data.Entity.Spatial;
 
-    [Table("category")]
-    public partial class category
+    [Table("Category")]
+    public partial class Category
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public category()
+        public Category()
         {
-            products = new HashSet<product>();
+            Products = new HashSet<Product>();
         }
 
-        [DatabaseGenerated(DatabaseGeneratedOption.None)]
-        public int id { get; set; }
+        public int CategoryId { get; set; }
 
         [Required]
         [StringLength(255)]
-        public string categoryName { get; set; }
+        public string CategoryName { get; set; }
 
         [Column(TypeName = "text")]
-        public string notes { get; set; }
-
-        public bool? categoryStatus { get; set; }
+        public string Notes { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<product> products { get; set; }
+        public virtual ICollection<Product> Products { get; set; }
     }
 }

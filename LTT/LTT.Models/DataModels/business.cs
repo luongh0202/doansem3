@@ -6,25 +6,25 @@ namespace LTT.Models.DataModels
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Data.Entity.Spatial;
 
-    [Table("business")]
-    public partial class business
+    [Table("Business")]
+    public partial class Business
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public business()
+        public Business()
         {
-            grouproles = new HashSet<grouprole>();
+            Grouproles = new HashSet<Grouprole>();
         }
 
         [DatabaseGenerated(DatabaseGeneratedOption.None)]
-        public int id { get; set; }
+        public int BusinessId { get; set; }
 
         [Required]
         [StringLength(255)]
-        public string businessname { get; set; }
+        public string Businessname { get; set; }
 
-        public bool businessstatus { get; set; }
+        public bool Businessstatus { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<grouprole> grouproles { get; set; }
+        public virtual ICollection<Grouprole> Grouproles { get; set; }
     }
 }

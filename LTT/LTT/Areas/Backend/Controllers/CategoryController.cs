@@ -2,40 +2,34 @@
 using LTT.Models.DataModels;
 using System;
 using System.Collections.Generic;
-using System.Data.Entity;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 
 namespace LTT.Areas.Backend.Controllers
 {
-    public class ProductController : Controller
+    public class CategoryController : Controller
     {
-        // GET: Backend/Product
-        Repository<Product> _product;
+        // GET: Backend/Category
         Repository<Category> _cat;
-
-        public ProductController()
+        public CategoryController()
         {
-            _product = new Repository<Product>();
             _cat = new Repository<Category>();
         }
         public ActionResult Index()
         {
-            return View(_product.GetAll());
+            return View(_cat.GetAll());
         }
         public ActionResult Create()
         {
-            ViewBag.categoryId = new SelectList(_cat.GetAll(), "CategoryId", "CategoryName");
             return View();
         }
         [HttpPost]
-        public ActionResult Create(Product p)
+        public ActionResult Create(Category c)
         {
-            ViewBag.categoryId = new SelectList(_cat.GetAll(), "CategoryId", "CategoryName");
             if (ModelState.IsValid)
             {
-                if (_product.Add(p))
+                if (_cat.Add(c))
                 {
                     return RedirectToAction("Index");
                 }
@@ -45,16 +39,14 @@ namespace LTT.Areas.Backend.Controllers
         }
         public ActionResult Edit(Int32 id)
         {
-            ViewBag.CategoryId = new SelectList(_cat.GetAll(), "CategoryId", "CategoryName");
-            return View(_product.Get(id));
+            return View(_cat.Get(id));
         }
         [HttpPost]
-        public ActionResult Edit(Product p)
+        public ActionResult Edit(Category c)
         {
-            ViewBag.CategoryId = new SelectList(_cat.GetAll(), "CategoryId", "CategoryName");
             if (ModelState.IsValid)
             {
-                if (_product.Edit(p))
+                if (_cat.Edit(c))
                 {
                     return RedirectToAction("Index");
                 }
@@ -62,6 +54,5 @@ namespace LTT.Areas.Backend.Controllers
             }
             return View();
         }
-
     }
 }

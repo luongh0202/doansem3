@@ -144,6 +144,7 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Areas\Backend\BackendAreaRegistration.cs" />
+    <Compile Include="Areas\Backend\Controllers\CategoryController.cs" />
     <Compile Include="Areas\Backend\Controllers\HomeController.cs" />
     <Compile Include="Areas\Backend\Controllers\ProductController.cs" />
     <Compile Include="Areas\Backend\Controllers\UserController.cs" />
@@ -1692,10 +1693,14 @@
     <Content Include="Assets\img\blog\Thumbs.db" />
     <Content Include="Assets\img\Thumbs.db" />
     <Content Include="Areas\Backend\Views\web.config" />
-    <Content Include="Areas\Backend\Views\Shared\_Layout.cshtml" />
     <Content Include="Areas\Backend\Views\Home\Index.cshtml" />
+    <Content Include="Areas\Backend\Views\Category\Index.cshtml" />
+    <Content Include="Areas\Backend\Views\Category\Create.cshtml" />
+    <Content Include="Areas\Backend\Views\Category\Edit.cshtml" />
     <Content Include="Areas\Backend\Views\Product\Index.cshtml" />
     <Content Include="Areas\Backend\Views\Product\Create.cshtml" />
+    <Content Include="Areas\Backend\Views\Product\Edit.cshtml" />
+    <Content Include="Areas\Backend\Views\Shared\_Layout.cshtml" />
     <None Include="packages.config" />
     <Content Include="Views\Users\Index.cshtml" />
   </ItemGroup>
@@ -1726,6 +1731,13 @@
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
   <Target Name="MvcBuildViews" AfterTargets="AfterBuild" Condition="'$(MvcBuildViews)'=='true'">
     <AspNetCompiler VirtualPath="temp" PhysicalPath="$(WebProjectOutputDir)" />
+  </Target>
+  <Target Name="CopyRoslynFiles" AfterTargets="AfterBuild" Condition="!$(Disable_CopyWebApplication) And '$(OutDir)' != '$(OutputPath)'">
+    <ItemGroup>
+      <RoslynFiles Include="$(CscToolPath)\*" />
+    </ItemGroup>
+    <MakeDir Directories="$(WebProjectOutputDir)\bin\roslyn" />
+    <Copy SourceFiles="@(RoslynFiles)" DestinationFolder="$(WebProjectOutputDir)\bin\roslyn" SkipUnchangedFiles="true" Retries="$(CopyRetryCount)" RetryDelayMilliseconds="$(CopyRetryDelayMilliseconds)" />
   </Target>
   <Target Name="CopyRoslynFiles" AfterTargets="AfterBuild" Condition="!$(Disable_CopyWebApplication) And '$(OutDir)' != '$(OutputPath)'">
     <ItemGroup>

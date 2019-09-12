@@ -40,14 +40,14 @@ namespace LTT.BAL.Repositories
                 db.SaveChanges();
                 return true;
             }
-            catch (Exception)
+            catch (Exception ex)
             {
 
                 return false;
             }
         }
 
-        public TEntity Get(object id)
+        public TEntity Get(Int32 id)
         {
             return tbl.Find(id);
         }
@@ -57,7 +57,7 @@ namespace LTT.BAL.Repositories
             return tbl;
         }
 
-        public bool Remove(object id)
+        public bool Remove(Int32 id)
         {
             try
             {

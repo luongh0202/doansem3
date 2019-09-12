@@ -6,24 +6,24 @@ namespace LTT.Models.DataModels
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Data.Entity.Spatial;
 
-    [Table("grouprole")]
-    public partial class grouprole
+    [Table("Grouprole")]
+    public partial class Grouprole
     {
         [DatabaseGenerated(DatabaseGeneratedOption.None)]
-        public int id { get; set; }
+        public int GroupRoleId { get; set; }
 
-        public int? groupid { get; set; }
+        public int? Groupid { get; set; }
 
-        public int? roleid { get; set; }
+        public int? Roleid { get; set; }
 
-        public int? businessid { get; set; }
+        public int? Businessid { get; set; }
 
-        public bool? grouprolestatus { get; set; }
+        public bool? Grouprolestatus { get; set; }
 
-        public virtual business business { get; set; }
+        public virtual Business Business { get; set; }
 
-        public virtual group group { get; set; }
+        public virtual Group Group { get; set; }
 
-        public virtual role role { get; set; }
+        public virtual Role Role { get; set; }
     }
 }

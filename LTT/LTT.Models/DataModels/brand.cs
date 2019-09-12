@@ -6,18 +6,17 @@ namespace LTT.Models.DataModels
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Data.Entity.Spatial;
 
-    [Table("brand")]
-    public partial class brand
+    [Table("Brand")]
+    public partial class Brand
     {
-        [DatabaseGenerated(DatabaseGeneratedOption.None)]
-        public int id { get; set; }
+        public int BrandId { get; set; }
 
         [Required]
         [StringLength(250)]
         public string brandName { get; set; }
 
-        public int? productId { get; set; }
+        public int? ProductId { get; set; }
 
-        public virtual product product { get; set; }
+        public virtual Product Product { get; set; }
     }
 }

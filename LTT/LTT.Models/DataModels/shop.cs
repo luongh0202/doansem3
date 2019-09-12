@@ -6,22 +6,22 @@ namespace LTT.Models.DataModels
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Data.Entity.Spatial;
 
-    [Table("shop")]
-    public partial class shop
+    [Table("Shop")]
+    public partial class Shop
     {
         [DatabaseGenerated(DatabaseGeneratedOption.None)]
-        public int id { get; set; }
+        public int ShopId { get; set; }
 
         [StringLength(250)]
-        public string description { get; set; }
+        public string Description { get; set; }
 
         [StringLength(250)]
-        public string image { get; set; }
+        public string Image { get; set; }
 
         [StringLength(250)]
-        public string video { get; set; }
+        public string Video { get; set; }
 
         [Column(TypeName = "ntext")]
-        public string detail { get; set; }
+        public string Detail { get; set; }
     }
 }

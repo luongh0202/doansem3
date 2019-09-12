@@ -9,9 +9,9 @@ namespace LTT.BAL.Repositories
     public interface IRepository <TEntity> where TEntity : class
     {
         IEnumerable<TEntity> GetAll();
-        TEntity Get(object id);
+        TEntity Get(Int32 id);
         bool Add(TEntity entity);
         bool Edit(TEntity entity);
-        bool Remove(object id);
+        bool Remove(Int32 id);
     }
 }

@@ -6,30 +6,30 @@ namespace LTT.Models.DataModels
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Data.Entity.Spatial;
 
-    public partial class user
+    public partial class User
     {
         [DatabaseGenerated(DatabaseGeneratedOption.None)]
-        public int id { get; set; }
+        public int UserId { get; set; }
 
         [Required]
         [StringLength(255)]
-        public string email { get; set; }
+        public string Email { get; set; }
 
         [Required]
         [StringLength(255)]
-        public string password { get; set; }
+        public string Password { get; set; }
 
         [Required]
         [StringLength(255)]
-        public string name { get; set; }
+        public string Name { get; set; }
 
         [Required]
         [StringLength(20)]
-        public string userPhone { get; set; }
+        public string UserPhone { get; set; }
 
         [Column(TypeName = "text")]
-        public string userAddress { get; set; }
+        public string UserAddress { get; set; }
 
-        public bool? userStatus { get; set; }
+        public bool? UserStatus { get; set; }
     }
 }

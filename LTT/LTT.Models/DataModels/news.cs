@@ -6,31 +6,20 @@ namespace LTT.Models.DataModels
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Data.Entity.Spatial;
 
-    public partial class news
+    public partial class News
     {
-        [DatabaseGenerated(DatabaseGeneratedOption.None)]
-        public int id { get; set; }
-
-        [Required]
-        [StringLength(250)]
-        public string productName { get; set; }
-
-        [Required]
-        [StringLength(50)]
-        public string codeProduct { get; set; }
-
-        [Required]
-        [StringLength(250)]
-        public string description { get; set; }
-
-        [Required]
-        [StringLength(250)]
-        public string image { get; set; }
+        public int NewsId { get; set; }
 
         [StringLength(250)]
-        public string video { get; set; }
+        public string Description { get; set; }
+
+        [StringLength(250)]
+        public string Image { get; set; }
+
+        [StringLength(250)]
+        public string Video { get; set; }
 
         [Column(TypeName = "ntext")]
-        public string detail { get; set; }
+        public string Detail { get; set; }
     }
 }

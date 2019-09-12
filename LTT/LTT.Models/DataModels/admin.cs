@@ -6,14 +6,14 @@ namespace LTT.Models.DataModels
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Data.Entity.Spatial;
 
-    public partial class admin
+    public partial class Admin
     {
         [DatabaseGenerated(DatabaseGeneratedOption.None)]
-        public int id { get; set; }
+        public int AdminId { get; set; }
 
         [Required]
         [StringLength(255)]
-        public string account { get; set; }
+        public string Account { get; set; }
 
         [Required]
         [StringLength(255)]
@@ -21,12 +21,12 @@ namespace LTT.Models.DataModels
 
         [Required]
         [StringLength(255)]
-        public string password { get; set; }
+        public string Password { get; set; }
 
-        public int? groupid { get; set; }
+        public int? Groupid { get; set; }
 
-        public bool? userStatus { get; set; }
+        public bool? UserStatus { get; set; }
 
-        public virtual group group { get; set; }
+        public virtual Group Group { get; set; }
     }
 }

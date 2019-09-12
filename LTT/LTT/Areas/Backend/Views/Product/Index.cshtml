@@ -1,4 +1,4 @@
-﻿@model IEnumerable<LTT.Models.DataModels.product>
+﻿@model IEnumerable<LTT.Models.DataModels.Product>
 
 @{
     ViewBag.Title = "Index";
@@ -13,19 +13,19 @@
 <table class="table">
     <tr>
         <th>
-            @Html.DisplayNameFor(model => model.category.categoryName)
+            @Html.DisplayNameFor(model => model.Category.CategoryName)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.productName)
+            @Html.DisplayNameFor(model => model.ProductName)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.codeProduct)
+            @Html.DisplayNameFor(model => model.CodeProduct)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.productDescription)
+            @Html.DisplayNameFor(model => model.ProductDescription)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.productImage)
+            @Html.DisplayNameFor(model => model.ProductImage)
         </th>
         <th>
             @Html.DisplayNameFor(model => model.video)
@@ -45,19 +45,19 @@
 @foreach (var item in Model) {
     <tr>
         <td>
-            @Html.DisplayFor(modelItem => item.category.categoryName)
+            @Html.DisplayFor(modelItem => item.Category.CategoryName)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.productName)
+            @Html.DisplayFor(modelItem => item.ProductName)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.codeProduct)
+            @Html.DisplayFor(modelItem => item.CodeProduct)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.productDescription)
+            @Html.DisplayFor(modelItem => item.ProductDescription)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.productImage)
+            @Html.DisplayFor(modelItem => item.ProductImage)
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.video)
@@ -72,9 +72,9 @@
             @Html.DisplayFor(modelItem => item.detail)
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.id }) |
-            @Html.ActionLink("Details", "Details", new { id=item.id }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.id })
+            @Html.ActionLink("Edit", "Edit", new { id=item.ProductId }) |
+            @Html.ActionLink("Details", "Details", new { id=item.ProductId }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.ProductId })
         </td>
     </tr>
 }

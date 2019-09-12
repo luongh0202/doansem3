@@ -12,76 +12,76 @@ namespace LTT.Models.DataModels
         {
         }
 
-        public virtual DbSet<admin> admins { get; set; }
-        public virtual DbSet<brand> brands { get; set; }
-        public virtual DbSet<business> businesses { get; set; }
-        public virtual DbSet<category> categories { get; set; }
-        public virtual DbSet<grouprole> grouproles { get; set; }
-        public virtual DbSet<group> groups { get; set; }
-        public virtual DbSet<news> news { get; set; }
-        public virtual DbSet<oder> oders { get; set; }
-        public virtual DbSet<oderDetail> oderDetails { get; set; }
-        public virtual DbSet<product> products { get; set; }
-        public virtual DbSet<role> roles { get; set; }
-        public virtual DbSet<shop> shops { get; set; }
-        public virtual DbSet<user> users { get; set; }
+        public virtual DbSet<Admin> Admins { get; set; }
+        public virtual DbSet<Brand> Brands { get; set; }
+        public virtual DbSet<Business> Businesses { get; set; }
+        public virtual DbSet<Category> Categories { get; set; }
+        public virtual DbSet<Grouprole> Grouproles { get; set; }
+        public virtual DbSet<Group> Groups { get; set; }
+        public virtual DbSet<News> News { get; set; }
+        public virtual DbSet<Oder> Oders { get; set; }
+        public virtual DbSet<OderDetail> OderDetails { get; set; }
+        public virtual DbSet<Product> Products { get; set; }
+        public virtual DbSet<Role> Roles { get; set; }
+        public virtual DbSet<Shop> Shops { get; set; }
+        public virtual DbSet<User> Users { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
-            modelBuilder.Entity<admin>()
-                .Property(e => e.account)
+            modelBuilder.Entity<Admin>()
+                .Property(e => e.Account)
                 .IsUnicode(false);
 
-            modelBuilder.Entity<admin>()
-                .Property(e => e.password)
+            modelBuilder.Entity<Admin>()
+                .Property(e => e.Password)
                 .IsUnicode(false);
 
-            modelBuilder.Entity<category>()
-                .Property(e => e.categoryName)
+            modelBuilder.Entity<Category>()
+                .Property(e => e.CategoryName)
                 .IsUnicode(false);
 
-            modelBuilder.Entity<category>()
-                .Property(e => e.notes)
+            modelBuilder.Entity<Category>()
+                .Property(e => e.Notes)
                 .IsUnicode(false);
 
-            modelBuilder.Entity<news>()
-                .Property(e => e.codeProduct)
+            modelBuilder.Entity<Oder>()
+                .Property(e => e.CodeOder)
                 .IsUnicode(false);
 
-            modelBuilder.Entity<oder>()
-                .Property(e => e.codeOder)
+            modelBuilder.Entity<Oder>()
+                .Property(e => e.CodeProduct)
                 .IsUnicode(false);
 
-            modelBuilder.Entity<oder>()
-                .Property(e => e.codeProduct)
+            modelBuilder.Entity<Oder>()
+                .Property(e => e.Notes)
                 .IsUnicode(false);
 
-            modelBuilder.Entity<oderDetail>()
-                .Property(e => e.codeOder)
+            modelBuilder.Entity<OderDetail>()
+                .Property(e => e.CodeOder)
                 .IsUnicode(false);
 
-            modelBuilder.Entity<product>()
-                .Property(e => e.codeProduct)
+            modelBuilder.Entity<Product>()
+                .Property(e => e.CodeProduct)
                 .IsUnicode(false);
 
-            modelBuilder.Entity<user>()
-                .Property(e => e.email)
+            modelBuilder.Entity<User>()
+                .Property(e => e.Email)
                 .IsUnicode(false);
 
-            modelBuilder.Entity<user>()
-                .Property(e => e.password)
+            modelBuilder.Entity<User>()
+                .Property(e => e.Password)
                 .IsUnicode(false);
 
-            modelBuilder.Entity<user>()
-                .Property(e => e.name)
+            modelBuilder.Entity<User>()
+                .Property(e => e.Name)
                 .IsUnicode(false);
 
-            modelBuilder.Entity<user>()
-                .Property(e => e.userPhone)
+            modelBuilder.Entity<User>()
+                .Property(e => e.UserPhone)
                 .IsUnicode(false);
 
-            modelBuilder.Entity<user>()
-                .Property(e => e.userAddress)
+            modelBuilder.Entity<User>()
+                .Property(e => e.UserAddress)
                 .IsUnicode(false);
         }
     }

@@ -6,27 +6,26 @@ namespace LTT.Models.DataModels
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Data.Entity.Spatial;
 
-    [Table("oderDetail")]
-    public partial class oderDetail
+    [Table("OderDetail")]
+    public partial class OderDetail
     {
-        [DatabaseGenerated(DatabaseGeneratedOption.None)]
-        public int id { get; set; }
+        public int OderDetailId { get; set; }
 
         [Required]
         [StringLength(50)]
-        public string codeOder { get; set; }
+        public string CodeOder { get; set; }
 
         [Column(TypeName = "ntext")]
-        public string detail { get; set; }
+        public string Detail { get; set; }
 
-        public int quantity { get; set; }
+        public int Quantity { get; set; }
 
-        public int? oderId { get; set; }
+        public int? OderId { get; set; }
 
-        public int? productId { get; set; }
+        public int? ProductId { get; set; }
 
-        public virtual oder oder { get; set; }
+        public virtual Oder Oder { get; set; }
 
-        public virtual product product { get; set; }
+        public virtual Product Product { get; set; }
     }
 }
