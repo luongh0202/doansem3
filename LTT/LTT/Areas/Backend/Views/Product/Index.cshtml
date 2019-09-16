@@ -10,73 +10,80 @@
 <p>
     @Html.ActionLink("Create New", "Create")
 </p>
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.Category.CategoryName)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.ProductName)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.CodeProduct)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.ProductDescription)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.ProductImage)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.video)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.price)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.quantity)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.detail)
-        </th>
-        <th></th>
-    </tr>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.Category.CategoryName)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.ProductName)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.CodeProduct)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.ProductDescription)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.ProductImage)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.video)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.price)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.quantity)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.detail)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.ProductId }) |
-            @Html.ActionLink("Details", "Details", new { id=item.ProductId }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.ProductId })
-        </td>
-    </tr>
-}
 
-</table>
+<div class="row">
+    <!--Responsive table-->
+    <div class="col-sm-12">
+        <div class="panel panel-default panel-table">
+            <div class="panel-heading">
+                Responsive Table
+                <div class="tools"><span class="icon mdi mdi-download"></span><span class="icon mdi mdi-more-vert"></span></div>
+            </div>
+            <div class="panel-body">
+                <table class="table table-striped table-hover">
+                    <thead>
+                        <tr>
+                            <th style="width:10%;">@Html.DisplayNameFor(model => model.Category.CategoryName)</th>
+                            <th style="width:10%;"> @Html.DisplayNameFor(model => model.ProductName)</th>
+                            <th style="width:10%;">@Html.DisplayNameFor(model => model.CodeProduct)</th>
+                            <th style="width:10%;">@Html.DisplayNameFor(model => model.ProductDescription)</th>
+                            <th style="width:10%;">@Html.DisplayNameFor(model => model.ProductImage)</th>
+                            <th style="width:10%;">@Html.DisplayNameFor(model => model.video)</th>
+                            <th style="width:10%;">
+                                @Html.DisplayNameFor(model => model.price)
+                            </th>
+                            <th style="width:10%;">
+                                @Html.DisplayNameFor(model => model.quantity)
+                            </th>
+                            <th style="width:10%;">
+                                @Html.DisplayNameFor(model => model.detail)
+                            </th>
+                            <th  style="width:10%;"></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model)
+                        {
+                        <tr>
+                            <td class="cell-detail">
+                                @Html.DisplayFor(modelItem => item.Category.CategoryName)
+                            </td>
+                            <td class="cell-detail">
+                                @Html.DisplayFor(modelItem => item.ProductName)
+                            </td>
+                            <td class="cell-detail">
+                                
+                                @Html.DisplayFor(modelItem => item.CodeProduct)
+                            </td>
+                            <td class="cell-detail">
+                                @Html.DisplayFor(modelItem => item.ProductDescription)
+                            </td>
+                            <td class="cell-detail">
+                                <img style="max-width: 150px;" src="@Html.DisplayFor(modelItem => item.ProductImage)"  />                                
+                            </td>
+                            <td class="cell-detail">
+                                @Html.DisplayFor(modelItem => item.video)
+                            </td>
+                            <td class="cell-detail">
+                                @Html.DisplayFor(modelItem => item.price)
+                            </td>
+                            <td class="cell-detail">
+                                @Html.DisplayFor(modelItem => item.quantity)
+                            </td>
+                            <td class="cell-detail">
+                                @Html.DisplayFor(modelItem => item.detail)
+                            </td>
+                            <td class="cell-detail">
+                                @Html.ActionLink("Edit", "Edit", new { id = item.ProductId }) |
+
+                                @Html.ActionLink("Delete", "Delete", new { id = item.ProductId })
+                            </td>
+                        </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>

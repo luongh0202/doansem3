@@ -41,6 +41,7 @@ namespace LTT.Areas.Backend.Controllers
                 }
                 return View();
             }
+            
             return View();
         }
         public ActionResult Edit(Int32 id)
@@ -49,7 +50,7 @@ namespace LTT.Areas.Backend.Controllers
             return View(_product.Get(id));
         }
         [HttpPost]
-        public ActionResult Edit(Product p)
+        public ActionResult Edit( Product p)
         {
             ViewBag.CategoryId = new SelectList(_cat.GetAll(), "CategoryId", "CategoryName");
             if (ModelState.IsValid)
@@ -62,6 +63,10 @@ namespace LTT.Areas.Backend.Controllers
             }
             return View();
         }
-
+        public ActionResult Delete(Int32 id)
+        {
+            _product.Remove(id);
+            return RedirectToAction("Index");
+        }
     }
 }
