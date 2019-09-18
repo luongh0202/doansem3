@@ -1,7 +1,7 @@
 ﻿@model LTT.Models.DataModels.Product
 
 @{
-    ViewBag.Title = "Create A Product !";
+    ViewBag.Title = "Create";
     Layout = "~/Areas/Backend/Views/Shared/_Layout.cshtml";
 }
 
@@ -99,19 +99,37 @@
 <div>
     @Html.ActionLink("Back to List", "Index")
 </div>
+<<<<<<< HEAD
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")
     <script src="~/Areas/Backend/Content/ckfinder/ckfinder.js"></script>
     <script>
     $(function(){
+=======
+
+@section Scripts {
+    
+<script src="~/Areas/Backend/Content/ckfinder/ckfinder.js"></script>
+<script>
+    $(function () {
+>>>>>>> 8e06c7c77732155c9c69589fb2bccc3b0bf460e3
         $(".upload_files").click(function () {
             var ip = $(this);
             var finder = new CKFinder();
             finder.selectActionFunction = function (url) {
+<<<<<<< HEAD
                 ip.val(url);
             }
     finder.popup();
     })
+=======
+                
+                ip.val(url);
+                ip.after("<img src='" +url + "' width='100px' /> ");
+            }
+            finder.popup();
+        })
+>>>>>>> 8e06c7c77732155c9c69589fb2bccc3b0bf460e3
     })
     </script>
 }

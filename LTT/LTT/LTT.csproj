@@ -64,7 +64,9 @@
   <ItemGroup>
     <Reference Include="CKFinder, Version=2.6.0.2792, Culture=neutral, PublicKeyToken=579e7adc719a1423, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
+
       <HintPath>..\..\..\..\MyDocuments\ckfinder\bin\Release\CKFinder.dll</HintPath>
+
     </Reference>
     <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
@@ -152,6 +154,7 @@
     <Compile Include="Areas\Backend\Controllers\HomeController.cs" />
     <Compile Include="Areas\Backend\Controllers\ProductController.cs" />
     <Compile Include="Areas\Backend\Controllers\UserController.cs" />
+    <Compile Include="Controllers\CategoryController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ProductController.cs" />
     <Compile Include="Controllers\UsersController.cs" />
@@ -1961,9 +1964,12 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+
     <Folder Include="Areas\Backend\Content\upload_imgs\" />
+
     <Folder Include="Areas\Backend\Models\" />
     <Folder Include="Areas\Backend\Views\User\" />
+    <Folder Include="Assets\img\product\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Assets\assetsadmin\css\includes\bootstrap-variables.less" />
@@ -2348,7 +2354,6 @@
     <Content Include="Areas\Backend\Views\Category\Create.cshtml" />
     <Content Include="Areas\Backend\Views\Category\Edit.cshtml" />
     <Content Include="Areas\Backend\Views\Product\Index.cshtml" />
-    <Content Include="Areas\Backend\Views\Product\Create.cshtml" />
     <Content Include="Areas\Backend\Views\Product\Edit.cshtml" />
     <Content Include="Areas\Backend\Views\Shared\_Layout.cshtml" />
     <Content Include="Areas\Backend\Content\ckfinder\plugins\fileeditor\codemirror\LICENSE" />
@@ -2389,6 +2394,13 @@
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
   <Target Name="MvcBuildViews" AfterTargets="AfterBuild" Condition="'$(MvcBuildViews)'=='true'">
     <AspNetCompiler VirtualPath="temp" PhysicalPath="$(WebProjectOutputDir)" />
+  </Target>
+  <Target Name="CopyRoslynFiles" AfterTargets="AfterBuild" Condition="!$(Disable_CopyWebApplication) And '$(OutDir)' != '$(OutputPath)'">
+    <ItemGroup>
+      <RoslynFiles Include="$(CscToolPath)\*" />
+    </ItemGroup>
+    <MakeDir Directories="$(WebProjectOutputDir)\bin\roslyn" />
+    <Copy SourceFiles="@(RoslynFiles)" DestinationFolder="$(WebProjectOutputDir)\bin\roslyn" SkipUnchangedFiles="true" Retries="$(CopyRetryCount)" RetryDelayMilliseconds="$(CopyRetryDelayMilliseconds)" />
   </Target>
   <Target Name="CopyRoslynFiles" AfterTargets="AfterBuild" Condition="!$(Disable_CopyWebApplication) And '$(OutDir)' != '$(OutputPath)'">
     <ItemGroup>
