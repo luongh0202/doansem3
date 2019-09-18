@@ -16,7 +16,7 @@ namespace LTT.Models.DataModels
         }
 
         [DatabaseGenerated(DatabaseGeneratedOption.None)]
-        public int BusinessId { get; set; }
+        public string BusinessId { get; set; }
 
         [Required]
         [StringLength(255)]

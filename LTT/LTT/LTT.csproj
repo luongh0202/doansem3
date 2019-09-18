@@ -148,6 +148,7 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Areas\Backend\BackendAreaRegistration.cs" />
+    <Compile Include="Areas\Backend\Controllers\BusinessesController.cs" />
     <Compile Include="Areas\Backend\Controllers\CategoryController.cs" />
     <Compile Include="Areas\Backend\Controllers\HomeController.cs" />
     <Compile Include="Areas\Backend\Controllers\OderController.cs" />
@@ -2361,6 +2362,7 @@
     <Content Include="Areas\Backend\Content\ckfinder\userfiles\.htaccess" />
     <Content Include="Areas\Backend\Views\Product\Create.cshtml" />
     <Content Include="Areas\Backend\Views\Oder\Index.cshtml" />
+    <Content Include="Areas\Backend\Views\Businesses\Index.cshtml" />
     <None Include="packages.config" />
     <Content Include="Views\Users\Index.cshtml" />
     <Content Include="Views\Product\Index.cshtml" />
