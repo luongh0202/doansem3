@@ -64,9 +64,7 @@
   <ItemGroup>
     <Reference Include="CKFinder, Version=2.6.0.2792, Culture=neutral, PublicKeyToken=579e7adc719a1423, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-
       <HintPath>..\..\..\..\MyDocuments\ckfinder\bin\Release\CKFinder.dll</HintPath>
-
     </Reference>
     <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
@@ -1964,9 +1962,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-
     <Folder Include="Areas\Backend\Content\upload_imgs\" />
-
     <Folder Include="Areas\Backend\Models\" />
     <Folder Include="Areas\Backend\Views\User\" />
     <Folder Include="Assets\img\product\" />
@@ -2362,6 +2358,7 @@
     <Content Include="Areas\Backend\Content\ckfinder\skins\bootstrap\assets\fonts\glyphicons-halflings-regular.woff" />
     <Content Include="Areas\Backend\Content\ckfinder\skins\bootstrap\assets\fonts\glyphicons-halflings-regular.woff2" />
     <Content Include="Areas\Backend\Content\ckfinder\userfiles\.htaccess" />
+    <Content Include="Areas\Backend\Views\Product\Create.cshtml" />
     <None Include="packages.config" />
     <Content Include="Views\Users\Index.cshtml" />
     <Content Include="Views\Product\Index.cshtml" />
