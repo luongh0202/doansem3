@@ -1,4 +1,5 @@
 ﻿
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -53,7 +54,7 @@
                                     <li class="top-bar-link"><a href="#">My Wishlist</a></li>
                                     <li class="top-bar-link"><a href="#">Newsletter</a></li>
                                     <li class="top-bar-link"><a href="login.html">Login</a></li>
-                                    <li class="top-bar-link">@Html.ActionLink("Register","Register", "Users")</li>
+                                    <li class="top-bar-link">@Html.ActionLink("Register", "Register", "Users")</li>
                                     <li class="top-bar-link"><a href="contact.html">Contact</a></li>
                                 </ul>
 
@@ -215,7 +216,7 @@
 
                                 </div>
                             </div> <!-- end header wrap -->
-
+                            <!-- end col -->
                             <div class="nav-wrap">
                                 <div class="collapse navbar-collapse" id="navbar-collapse">
 
@@ -231,121 +232,127 @@
                                         </li>
 
                                         <li class="dropdown">
-                                            <a href="index.html">Home</a>
+                                            <a href="@Url.Action("Index","Home")">Home</a>
                                         </li>
 
-                                      <li class="dropdown">
-                                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Catalog</a>
-                                        <ul class="dropdown-menu megamenu">
-                                          <li>
-                                            <div class="megamenu-wrap">
-                                              <div class="row">
+                                        <li class="dropdown">
+                                            <a href="@Url.Action("Index","Product")" class="dropdown-toggle" data-toggle="dropdown">Product</a>
 
-                                                <div class="col-md-6 megamenu-item">
-                                                  <h3>For Man</h3>
-                                                  <ul class="menu-list">
-                                                    <li>
-                                                      <a href="#">DIOR ( ITALIA )</a>
-                                                    </li>
-                                                    <li>
-                                                      <a href="#">CHANEL ( USA ) </a>
-                                                    </li>
-                                                    <li>
-                                                      <a href="#">GUCCI ( UNITED KINGDOM )</a>
-                                                    </li>
-                                                    <li>
-                                                      <a href="#">CK ( VIET NAM )</a>
-                                                    </li>
-                                                  </ul>
-                                                </div>
+                                        </li>
+                                        <!-- end categories -->
+                                        <li class="dropdown">
+                                            <a href="#">News</a>
+                                            <i class="fa fa-angle-down dropdown-toggle" data-toggle="dropdown"></i>
+                                            <ul class="dropdown-menu">
+                                                <li>
+                                                    <a href="about-us.html">About Us</a>
+                                                </li>
+                                                <li>
+                                                    <a href="contact.html">Contact</a>
+                                                </li>
+                                                <li>
+                                                    <a href="login.html">Login</a>
+                                                </li>
+                                                <li>
+                                                    <a href="faq.html">F.A.Q</a>
+                                                </li>
+                                                <li>
+                                                    <a href="404.html">404</a>
+                                                </li>
+                                            </ul>
+                                        </li>
 
-                                                <div class="col-md-6 megamenu-item">
-                                                  <h3>For Woman</h3>
-                                                  <ul class="menu-list">
-                                                    <li>
-                                                      <a href="#">DIOR ( ITALIA )</a>
-                                                    </li>
-                                                    <li>
-                                                      <a href="#">CHANEL ( USA ) </a>
-                                                    </li>
-                                                    <li>
-                                                      <a href="#">GUCCI ( UNITED KINGDOM )</a>
-                                                    </li>
-                                                    <li>
-                                                      <a href="#">Victoria Secret ( VIET NAM )</a>
-                                                    </li>
-                                                  </ul>
-                                                </div>
+                                        <li class="dropdown">
+                                            <a href="#">Contacts</a>
+                                            <i class="fa fa-angle-down dropdown-toggle" data-toggle="dropdown"></i>
+                                            <ul class="dropdown-menu">
+                                                <li>
+                                                    <a href="blog-standard.html">Standard</a>
+                                                </li>
+                                                <li>
+                                                    <a href="blog-single.html">Single Post</a>
+                                                </li>
+                                            </ul>
+                                        </li>
 
-
-                                              </div>
-                                            </div>
-                                          </li>
-                                        </ul>
-                                      </li>
-                                      <!-- end categories -->
-                                      <li class="dropdown">
-                                        <a href="#">News</a>
-                                        <i class="fa fa-angle-down dropdown-toggle" data-toggle="dropdown"></i>
-                                        <ul class="dropdown-menu">
-                                          <li>
-                                            <a href="about-us.html">About Us</a>
-                                          </li>
-                                          <li>
-                                            <a href="contact.html">Contact</a>
-                                          </li>
-                                          <li>
-                                            <a href="login.html">Login</a>
-                                          </li>
-                                          <li>
-                                            <a href="faq.html">F.A.Q</a>
-                                          </li>
-                                          <li>
-                                            <a href="404.html">404</a>
-                                          </li>
-                                        </ul>
-                                      </li>
-
-                                      <li class="dropdown">
-                                        <a href="#">Contacts</a>
-                                        <i class="fa fa-angle-down dropdown-toggle" data-toggle="dropdown"></i>
-                                        <ul class="dropdown-menu">
-                                          <li>
-                                            <a href="blog-standard.html">Standard</a>
-                                          </li>
-                                          <li>
-                                            <a href="blog-single.html">Single Post</a>
-                                          </li>
-                                        </ul>
-                                      </li>
-
-                                      <li class="mobile-links">
-                                        <ul>
-                                          <li>
-                                            <a href="#">Login</a>
-                                          </li>
-                                          <li>
-                                            <a href="#">My Account</a>
-                                          </li>
-                                          <li>
-                                            <a href="#">My Wishlist</a>
-                                          </li>
-                                        </ul>
-                                      </li>
+                                        <li class="mobile-links">
+                                            <ul>
+                                                <li>
+                                                    <a href="#">Login</a>
+                                                </li>
+                                                <li>
+                                                    <a href="#">My Account</a>
+                                                </li>
+                                                <li>
+                                                    <a href="#">My Wishlist</a>
+                                                </li>
+                                            </ul>
+                                        </li>
 
                                     </ul>
                                     <!-- end menu -->
-                                  </div>
-                                  <!-- end collapse -->
                                 </div>
-                                <!-- end col -->
-
+                                <!-- end collapse -->
+                            </div>
                         </div> <!-- end row -->
                     </div> <!-- end container -->
                 </div> <!-- end navigation -->
             </nav> <!-- end navbar -->
         </header> <!-- end navigation -->
         @RenderBody()
+        <section class="section-wrap partners pt-0 pb-50">
+            <div class="container">
+                <div class="row">
+
+                    <div id="owl-partners" class="owl-carousel owl-theme">
+
+                        <div class="item">
+                            <a href="#">
+                                <img src="~/Assets/img/partners/partner_logo_dark_1.png" alt="">
+                            </a>
+                        </div>
+                        <div class="item">
+                            <a href="#">
+                                <img src="~/Assets/img/partners/partner_logo_dark_2.png" alt="">
+                            </a>
+                        </div>
+                        <div class="item">
+                            <a href="#">
+                                <img src="~/Assets/img/partners/partner_logo_dark_3.png" alt="">
+                            </a>
+                        </div>
+                        <div class="item">
+                            <a href="#">
+                                <img src="~/Assets/img/partners/partner_logo_dark_4.gif" alt="">
+                            </a>
+                        </div>
+                        <div class="item">
+                            <a href="#">
+                                <img src="~/Assets/img/partners/partner_logo_dark_5.jpg" alt="">
+                            </a>
+                        </div>
+                        <div class="item">
+                            <a href="#">
+                                <img src="~/Assets/img/partners/partner_logo_dark_6.jpg" alt="">
+                            </a>
+                        </div>
+                        <div class="item">
+                            <a href="#">
+                                <img src="~/Assets/img/partners/partner_logo_dark_1.png" alt="">
+                            </a>
+                        </div>
+                        <div class="item">
+                            <a href="#">
+                                <img src="~/Assets/img/partners/partner_logo_dark_2.png" alt="">
+                            </a>
+                        </div>
+
+                    </div>
+                    <!-- end carousel -->
+
+                </div>
+            </div>
+        </section>
         <!-- Footer Type-1 -->
         <footer class="footer footer-type-1 bg-white">
             <div class="container">

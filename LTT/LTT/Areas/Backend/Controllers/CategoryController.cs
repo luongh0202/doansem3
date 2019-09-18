@@ -54,5 +54,10 @@ namespace LTT.Areas.Backend.Controllers
             }
             return View();
         }
+        public ActionResult Delete(Int32 id)
+        {
+            _cat.Remove(id);
+            return RedirectToAction("Index");
+        }
     }
 }

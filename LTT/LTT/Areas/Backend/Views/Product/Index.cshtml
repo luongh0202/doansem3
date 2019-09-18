@@ -10,7 +10,7 @@
 <p>
     @Html.ActionLink("Create New", "Create")
 </p>
-<table class="table">
+<table class="table" style="border:2px solid cyan">
     <tr>
         <th>
             @Html.DisplayNameFor(model => model.Category.CategoryName)
@@ -57,7 +57,7 @@
             @Html.DisplayFor(modelItem => item.ProductDescription)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.ProductImage)
+             <img src="@Html.DisplayFor(modelItem => item.ProductImage)" style="width:100px" alt="Alternate Text" />
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.video)
@@ -73,7 +73,7 @@
         </td>
         <td>
             @Html.ActionLink("Edit", "Edit", new { id=item.ProductId }) |
-            @Html.ActionLink("Details", "Details", new { id=item.ProductId }) |
+           
             @Html.ActionLink("Delete", "Delete", new { id=item.ProductId })
         </td>
     </tr>
