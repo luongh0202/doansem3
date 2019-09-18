@@ -20,5 +20,31 @@ namespace LTT.Areas.Backend.Controllers
         {
             return View(_oder.GetAll());
         }
+        public ActionResult Edit(Int32 id)
+        {
+            return View(_oder.Get(id));
+        }
+        [HttpPost]
+        public ActionResult Edit(Oder o)
+        {
+            if (ModelState.IsValid)
+            {
+                if (_oder.Edit(o))
+                {
+                    return RedirectToAction("Index");
+                }
+                return View();
+            }
+            return View();
+        }
+        public ActionResult Details(Int32 id)
+        {
+            return View(_oder.Get(id));
+        }
+        public ActionResult Delete(Int32 id)
+        {
+            _oder.Remove(id);
+            return RedirectToAction("Index");
+        }
     }
 }

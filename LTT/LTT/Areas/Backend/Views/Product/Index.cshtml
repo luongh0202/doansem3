@@ -61,7 +61,7 @@
                                 @Html.DisplayFor(modelItem => item.ProductDescription)
                             </td>
                             <td class="cell-detail">
-                                <img style="max-width: 150px;" src="@Html.DisplayFor(modelItem => item.ProductImage)"  />                                
+                                <img style="max-width: 100px;" src="@Html.DisplayFor(modelItem => item.ProductImage)"  />                                
                             </td>
                             <td class="cell-detail">
                                 @Html.DisplayFor(modelItem => item.video)
@@ -76,8 +76,8 @@
                                 @Html.DisplayFor(modelItem => item.detail)
                             </td>
                             <td class="cell-detail">
-                                @Html.ActionLink("Edit", "Edit", new { id = item.ProductId }) |
-
+                                @Html.ActionLink("Edit", "Edit", new { id = item.ProductId })
+                                @Html.ActionLink("Details", "Details", new { id = item.ProductId })
                                 @Html.ActionLink("Delete", "Delete", new { id = item.ProductId })
                             </td>
                         </tr>

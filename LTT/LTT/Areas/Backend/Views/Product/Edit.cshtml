@@ -46,7 +46,7 @@
         <div class="form-group">
             @Html.LabelFor(model => model.ProductImage, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.ProductImage, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.EditorFor(model => model.ProductImage, new { htmlAttributes = new { @class = "form-control upload_files" } })
                 @Html.ValidationMessageFor(model => model.ProductImage, "", new { @class = "text-danger" })
             </div>
         </div>
@@ -54,7 +54,7 @@
         <div class="form-group">
             @Html.LabelFor(model => model.video, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.video, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.EditorFor(model => model.video, new { htmlAttributes = new { @class = "form-control upload_files"} })
                 @Html.ValidationMessageFor(model => model.video, "", new { @class = "text-danger" })
             </div>
         </div>
@@ -102,3 +102,22 @@
 <div>
     @Html.ActionLink("Back to List", "Index")
 </div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+    <script src="~/Areas/Backend/Content/ckfinder/ckfinder.js"></script>
+    <script>
+    $(function(){
+
+        $(".upload_files").click(function () {
+            var ip = $(this);
+            var finder = new CKFinder();
+            finder.selectActionFunction = function (url) {
+                ip.val(url);
+                ip.after("<img src='" +url + "' width='100px' /> ");
+            }
+            finder.popup();
+        })
+    })
+    </script>
+}

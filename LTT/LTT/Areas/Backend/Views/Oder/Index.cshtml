@@ -1,15 +1,13 @@
 ﻿@model IEnumerable<LTT.Models.DataModels.Oder>
 
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Information Oder !";
     Layout = "~/Areas/Backend/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Index</h2>
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
+
+
 <table class="table">
     <tr>
         <th>
@@ -42,8 +40,9 @@
             @Html.DisplayFor(modelItem => item.Notes)
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.OderId }) | |
-            @Html.ActionLink("Delete", "Delete", new { id=item.OderId })
+            @Html.ActionLink("Edit", "Edit", new { id = item.OderId }) |
+            @Html.ActionLink("Details", "Details", new { id = item.OderId }) |
+            @Html.ActionLink("Delete", "Delete", new { id = item.OderId })
         </td>
     </tr>
 }

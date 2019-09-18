@@ -54,6 +54,10 @@ namespace LTT.Areas.Backend.Controllers
             }
             return View();
         }
+        public ActionResult Details(Int32 id)
+        {
+            return View(_cat.Get(id));
+        }
         public ActionResult Delete(Int32 id)
         {
             _cat.Remove(id);

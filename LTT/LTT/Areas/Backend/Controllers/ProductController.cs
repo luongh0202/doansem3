@@ -63,6 +63,11 @@ namespace LTT.Areas.Backend.Controllers
             }
             return View();
         }
+        public ActionResult Details(Int32 id)
+        {
+            ViewBag.CategoryId = new SelectList(_cat.GetAll(), "CategoryId", "CategoryName");
+            return View(_product.Get(id));
+        }
         public ActionResult Delete(Int32 id)
         {
             _product.Remove(id);

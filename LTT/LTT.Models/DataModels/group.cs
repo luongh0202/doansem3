@@ -12,7 +12,6 @@ namespace LTT.Models.DataModels
         public Group()
         {
             Admins = new HashSet<Admin>();
-            Grouproles = new HashSet<Grouprole>();
         }
 
         [DatabaseGenerated(DatabaseGeneratedOption.None)]
@@ -25,8 +24,5 @@ namespace LTT.Models.DataModels
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Admin> Admins { get; set; }
-
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Grouprole> Grouproles { get; set; }
     }
 }

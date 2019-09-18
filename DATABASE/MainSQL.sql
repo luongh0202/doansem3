@@ -107,6 +107,14 @@ CREATE TABLE [Admins] (
 	UserStatus bit
 )
 GO
+Create table Contact(
+	ContactId int primary key identity,
+	Name nvarchar(250) not null,
+	Email nvarchar(250) not null,
+	[Subject] nvarchar(250) not null,
+	[Message] ntext not null
+)
+GO
 INSERT INTO [dbo].[Role] ([RoleId],[Rolename],[Rolestatus])
 VALUES ('ADD','Them',1)
 INSERT INTO [dbo].[Role] ([RoleId],[Rolename],[Rolestatus])

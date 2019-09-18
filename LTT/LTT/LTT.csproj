@@ -149,8 +149,10 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Areas\Backend\BackendAreaRegistration.cs" />
     <Compile Include="Areas\Backend\Controllers\CategoryController.cs" />
+    <Compile Include="Areas\Backend\Controllers\ContactController.cs" />
     <Compile Include="Areas\Backend\Controllers\HomeController.cs" />
     <Compile Include="Areas\Backend\Controllers\OderController.cs" />
+    <Compile Include="Areas\Backend\Controllers\OderDetailController.cs" />
     <Compile Include="Areas\Backend\Controllers\ProductController.cs" />
     <Compile Include="Areas\Backend\Controllers\UserController.cs" />
     <Compile Include="Areas\Backend\Models\Reflection.cs" />
@@ -2361,6 +2363,15 @@
     <Content Include="Areas\Backend\Content\ckfinder\userfiles\.htaccess" />
     <Content Include="Areas\Backend\Views\Product\Create.cshtml" />
     <Content Include="Areas\Backend\Views\Oder\Index.cshtml" />
+    <Content Include="Areas\Backend\Views\OderDetail\Index.cshtml" />
+    <Content Include="Areas\Backend\Views\Oder\Edit.cshtml" />
+    <Content Include="Areas\Backend\Views\OderDetail\Edit.cshtml" />
+    <Content Include="Areas\Backend\Views\Contact\Index.cshtml" />
+    <Content Include="Areas\Backend\Views\Contact\Details.cshtml" />
+    <Content Include="Areas\Backend\Views\Category\Details.cshtml" />
+    <Content Include="Areas\Backend\Views\Product\Details.cshtml" />
+    <Content Include="Areas\Backend\Views\Oder\Details.cshtml" />
+    <Content Include="Areas\Backend\Views\OderDetail\Details.cshtml" />
     <None Include="packages.config" />
     <Content Include="Views\Users\Index.cshtml" />
     <Content Include="Views\Product\Index.cshtml" />
