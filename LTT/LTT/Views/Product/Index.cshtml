@@ -60,23 +60,14 @@
                         @foreach (var item in Model)
                         {
                             <div class="col-md-4 col-xs-6">
+
                                 <div class="product-item">
                                     <div class="product-img">
                                         <a href="#">
 
-                                            <img src="
-                            
-
-
-                                      @Html.DisplayFor(modelItem => item.ProductImage)
-
-
-                            " alt="">
-
+                                            <img src="@Html.DisplayFor(modelItem => item.ProductImage)" alt="">
                                         </a>
-
                                         <div class="product-actions">
-
                                             <a href="#" class="product-add-to-wishlist" data-toggle="tooltip" data-placement="bottom" title="Add to Cart">
                                                 <i class="fa fa-heart"></i>
                                             </a>
@@ -86,35 +77,23 @@
                                     <div class="product-details">
                                         <h3>
                                             <a class="product-title" href="shop-single-product.html">
-                                               
-
-
-                                                    @Html.DisplayFor(modelItem => item.ProductName)
-
-
-                                                
+                                                @Html.DisplayFor(modelItem => item.ProductName)
                                             </a>
                                         </h3>
                                         <span class="price">
-
                                             <ins>
                                                 <span>
-                                                    
-
-
-                                                        @Html.DisplayFor(modelItem => item.price)
-
-
-                                                    $
-                                                </span>
-                                            </ins>
-                                        </span>
-                                    </div>
+                                                    @Html.DisplayFor(modelItem => item.price)$
+                                            </span>
+                                        </ins>
+                                    </span>
                                 </div>
                             </div>
+                            
+                        </div>
                         }
-
                     </div> <!-- end row -->
+                        
                 </div> <!-- end grid mode -->
 
                 <div class="clear"></div>
