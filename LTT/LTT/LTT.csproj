@@ -150,8 +150,10 @@
     <Compile Include="Areas\Backend\BackendAreaRegistration.cs" />
     <Compile Include="Areas\Backend\Controllers\CategoryController.cs" />
     <Compile Include="Areas\Backend\Controllers\HomeController.cs" />
+    <Compile Include="Areas\Backend\Controllers\OderController.cs" />
     <Compile Include="Areas\Backend\Controllers\ProductController.cs" />
     <Compile Include="Areas\Backend\Controllers\UserController.cs" />
+    <Compile Include="Areas\Backend\Models\Reflection.cs" />
     <Compile Include="Controllers\CategoryController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ProductController.cs" />
@@ -1963,7 +1965,6 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Areas\Backend\Content\upload_imgs\" />
-    <Folder Include="Areas\Backend\Models\" />
     <Folder Include="Areas\Backend\Views\User\" />
     <Folder Include="Assets\img\product\" />
   </ItemGroup>
@@ -2359,6 +2360,7 @@
     <Content Include="Areas\Backend\Content\ckfinder\skins\bootstrap\assets\fonts\glyphicons-halflings-regular.woff2" />
     <Content Include="Areas\Backend\Content\ckfinder\userfiles\.htaccess" />
     <Content Include="Areas\Backend\Views\Product\Create.cshtml" />
+    <Content Include="Areas\Backend\Views\Oder\Index.cshtml" />
     <None Include="packages.config" />
     <Content Include="Views\Users\Index.cshtml" />
     <Content Include="Views\Product\Index.cshtml" />
