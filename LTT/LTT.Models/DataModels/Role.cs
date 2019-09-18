@@ -6,25 +6,23 @@ namespace LTT.Models.DataModels
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Data.Entity.Spatial;
 
-    public partial class Group
+    [Table("Role")]
+    public partial class Role
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Group()
+        public Role()
         {
-            Admins = new HashSet<Admin>();
             Grouproles = new HashSet<Grouprole>();
         }
 
-        [DatabaseGenerated(DatabaseGeneratedOption.None)]
-        public int GroupId { get; set; }
+        [StringLength(10)]
+        public string RoleId { get; set; }
 
+        [Required]
         [StringLength(255)]
-        public string Groupname { get; set; }
+        public string Rolename { get; set; }
 
-        public bool? Groupstatus { get; set; }
-
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Admin> Admins { get; set; }
+        public bool Rolestatus { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Grouprole> Grouproles { get; set; }

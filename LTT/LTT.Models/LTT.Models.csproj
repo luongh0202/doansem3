@@ -53,14 +53,17 @@
   <ItemGroup>
     <Compile Include="DataModels\Admin.cs" />
     <Compile Include="DataModels\Brand.cs" />
+    <Compile Include="DataModels\Business.cs" />
     <Compile Include="DataModels\Category.cs" />
     <Compile Include="DataModels\Contact.cs" />
     <Compile Include="DataModels\Group.cs" />
+    <Compile Include="DataModels\Grouprole.cs" />
     <Compile Include="DataModels\LTTDBContext.cs" />
     <Compile Include="DataModels\News.cs" />
     <Compile Include="DataModels\Oder.cs" />
     <Compile Include="DataModels\OderDetail.cs" />
     <Compile Include="DataModels\Product.cs" />
+    <Compile Include="DataModels\Role.cs" />
     <Compile Include="DataModels\Shop.cs" />
     <Compile Include="DataModels\User.cs" />
     <Compile Include="Migrations\Configuration.cs" />

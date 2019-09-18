@@ -1,0 +1,40 @@
+﻿@model IEnumerable<LTT.Models.DataModels.Business>
+
+@{
+    ViewBag.Title = "Danh sach";
+    Layout = "~/Areas/Backend/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Update", "UpdateBusiness")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Businessname)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Businessstatus)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Businessname)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Businessstatus)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.BusinessId }) |
+            @Html.ActionLink("Details", "Details", new { id=item.BusinessId }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.BusinessId })
+        </td>
+    </tr>
+}
+
+</table>
