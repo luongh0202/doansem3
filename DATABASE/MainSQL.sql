@@ -74,7 +74,7 @@ CREATE TABLE Users (
 GO
 
 CREATE TABLE [Role] (
-	RoleId int primary key,
+	RoleId nchar(10) primary,
 	Rolename nvarchar(255) not null,
 	Rolestatus bit not null
 )
@@ -93,7 +93,7 @@ GO
 CREATE TABLE Grouprole (
 	GroupRoleId int primary key,
 	Groupid int foreign key references Groups(GroupId),
-	Roleid int foreign key references [Role](RoleId),
+	Roleid nchar(10) foreign key references [Role](RoleId),
 	Businessid int foreign key references Business(BusinessId),
 	Grouprolestatus bit
 )
@@ -106,6 +106,15 @@ CREATE TABLE [Admins] (
 	Groupid int foreign key references Groups(GroupId),
 	UserStatus bit
 )
+GO
+INSERT INTO [dbo].[Role] ([RoleId],[Rolename],[Rolestatus])
+VALUES ('ADD','Them',1)
+INSERT INTO [dbo].[Role] ([RoleId],[Rolename],[Rolestatus])
+VALUES ('VIEW','Xem',1)
+INSERT INTO [dbo].[Role] ([RoleId],[Rolename],[Rolestatus])
+VALUES ('UPDATE','Sua',1)
+INSERT INTO [dbo].[Role] ([RoleId],[Rolename],[Rolestatus])
+VALUES ('DELETE','Xoa',1)
 GO
 select * from Category
 select * from Products
