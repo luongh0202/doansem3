@@ -66,10 +66,8 @@ CREATE TABLE Users (
 	UserId int primary key,
 	Email varchar(255) not null,
 	[Password] varchar(255) not null,
-	Name varchar(255) not null,
-	UserPhone varchar(20) not null,
-	UserAddress text,
-	UserStatus bit
+	[Name] varchar(255) not null,
+	UserAddress text
 )
 GO
 
@@ -91,11 +89,9 @@ CREATE TABLE Groups (
 )
 GO
 CREATE TABLE Grouprole (
-	GroupRoleId int primary key,
 	Groupid int foreign key references Groups(GroupId),
 	Roleid nchar(10) foreign key references [Role](RoleId),
-	Businessid nchar(10) foreign key references Business(BusinessId),
-	Grouprolestatus bit
+	Businessid nchar(10) foreign key references Business(BusinessId)
 )
 GO
 CREATE TABLE [Admins] (

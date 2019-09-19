@@ -24,8 +24,8 @@ namespace LTT.Areas.Backend.Controllers
         public ActionResult UpdateBusiness()
         {
             Reflection rf = new Reflection();
-            var controllers = rf.GetControllers("LTT.Areas.Backend.Controllers").Select(x => x.Name);
-            var oldBusiness = _business.GetAll();
+            var controllers = rf.GetControllers("LTT.Areas.Backend.Controllers").Select(x => x.Name.Replace("Controller", ""));
+            var oldBusiness = _business.GetAll().ToList();
             foreach (var item in controllers)
             {
                 if (!oldBusiness.Any(x => x.BusinessId == item))

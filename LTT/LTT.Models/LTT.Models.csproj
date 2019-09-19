@@ -68,6 +68,7 @@
     <Compile Include="DataModels\User.cs" />
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ViewModels\AdminViewModel.cs" />
     <Compile Include="ViewModels\UserRegister.cs" />
   </ItemGroup>
   <ItemGroup>
