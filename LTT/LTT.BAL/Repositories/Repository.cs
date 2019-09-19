@@ -25,11 +25,16 @@ namespace LTT.BAL.Repositories
                 db.SaveChanges();
                 return true;
             }
-            catch (Exception)
+            catch (Exception ex)
             {
 
                 return false;
             }
+        }
+
+        public object GetBy(Func<object, bool> p)
+        {
+            throw new NotImplementedException();
         }
 
         public bool Edit(TEntity entity)

@@ -148,14 +148,18 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Areas\Backend\BackendAreaRegistration.cs" />
+    <Compile Include="Areas\Backend\Controllers\AccountsController.cs" />
     <Compile Include="Areas\Backend\Controllers\BusinessesController.cs" />
     <Compile Include="Areas\Backend\Controllers\CategoryController.cs" />
     <Compile Include="Areas\Backend\Controllers\ContactController.cs" />
+    <Compile Include="Areas\Backend\Controllers\GroupRolesController.cs" />
+    <Compile Include="Areas\Backend\Controllers\GroupsController.cs" />
     <Compile Include="Areas\Backend\Controllers\HomeController.cs" />
     <Compile Include="Areas\Backend\Controllers\OderController.cs" />
     <Compile Include="Areas\Backend\Controllers\OderDetailController.cs" />
     <Compile Include="Areas\Backend\Controllers\ProductController.cs" />
     <Compile Include="Areas\Backend\Controllers\UserController.cs" />
+    <Compile Include="Areas\Backend\Models\CustomizeAuthAttribute.cs" />
     <Compile Include="Areas\Backend\Models\Reflection.cs" />
     <Compile Include="Controllers\CategoryController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
@@ -1968,6 +1972,9 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Areas\Backend\Content\upload_imgs\" />
+    <Folder Include="Areas\Backend\Views\Account\" />
+    <Folder Include="Areas\Backend\Views\GroupRolesController\" />
+    <Folder Include="Areas\Backend\Views\Groups\" />
     <Folder Include="Areas\Backend\Views\User\" />
     <Folder Include="Assets\img\product\" />
   </ItemGroup>
