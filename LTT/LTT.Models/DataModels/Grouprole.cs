@@ -17,7 +17,8 @@ namespace LTT.Models.DataModels
         [StringLength(10)]
         public string Roleid { get; set; }
 
-        public int? Businessid { get; set; }
+        [StringLength(10)]
+        public string Businessid { get; set; }
 
         public bool? Grouprolestatus { get; set; }
 

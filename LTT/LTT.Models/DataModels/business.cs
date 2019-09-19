@@ -15,8 +15,8 @@ namespace LTT.Models.DataModels
             Grouproles = new HashSet<Grouprole>();
         }
 
-        [DatabaseGenerated(DatabaseGeneratedOption.None)]
-        public int BusinessId { get; set; }
+        [StringLength(10)]
+        public string BusinessId { get; set; }
 
         [Required]
         [StringLength(255)]

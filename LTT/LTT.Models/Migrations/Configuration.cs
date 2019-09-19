@@ -5,16 +5,16 @@ namespace LTT.Models.Migrations
     using System.Data.Entity.Migrations;
     using System.Linq;
 
-    internal sealed class Configuration : DbMigrationsConfiguration<LTT.Models.DataModels.LTTDBContext>
+    internal sealed class Configuration : DbMigrationsConfiguration<LTT.Models.DataModels.LTTDB>
     {
         public Configuration()
         {
             AutomaticMigrationsEnabled = true;
-            ContextKey = "LTT.Models.DataModels.LTTDBContext";
+            ContextKey = "LTT.Models.DataModels.LTTDB";
             AutomaticMigrationDataLossAllowed =true;
         }
 
-        protected override void Seed(LTT.Models.DataModels.LTTDBContext context)
+        protected override void Seed(LTT.Models.DataModels.LTTDB context)
         {
             //  This method will be called after migrating to the latest version.
 

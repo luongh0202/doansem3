@@ -58,7 +58,7 @@
     <Compile Include="DataModels\Contact.cs" />
     <Compile Include="DataModels\Group.cs" />
     <Compile Include="DataModels\Grouprole.cs" />
-    <Compile Include="DataModels\LTTDBContext.cs" />
+    <Compile Include="DataModels\LTTDB.cs" />
     <Compile Include="DataModels\News.cs" />
     <Compile Include="DataModels\Oder.cs" />
     <Compile Include="DataModels\OderDetail.cs" />

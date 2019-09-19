@@ -10,11 +10,11 @@ namespace LTT.BAL.Repositories
 {
     public class Repository<TEntity> : IRepository<TEntity> where TEntity : class
     {
-        protected LTTDBContext db;
+        protected LTTDB db;
         protected DbSet<TEntity> tbl;
         public Repository()
         {
-            db = new LTTDBContext();
+            db = new LTTDB();
             tbl = db.Set<TEntity>();
         }
         public bool Add(TEntity entity)

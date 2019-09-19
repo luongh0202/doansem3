@@ -5,13 +5,13 @@ CREATE DATABASE LTT
 GO
 USE LTT
 go
-CREATE TABLE Category(
+CREATE TABLE Category (
 	CategoryId int primary key identity,
 	CategoryName varchar(255) not null,
 	Notes text
 )
 GO
-CREATE TABLE Oder(
+CREATE TABLE Oder (
 	OderId int primary key identity,
 	CodeOder varchar(50) not null,
 	CodeProduct varchar(50) not null,
@@ -79,7 +79,7 @@ CREATE TABLE [Role] (
 	Rolestatus bit not null
 )
 CREATE TABLE Business (
-	BusinessId int primary key,
+	BusinessId nchar(10) primary key,
 	Businessname nvarchar(255) not null,
 	Businessstatus bit not null
 )
@@ -94,7 +94,7 @@ CREATE TABLE Grouprole (
 	GroupRoleId int primary key,
 	Groupid int foreign key references Groups(GroupId),
 	Roleid nchar(10) foreign key references [Role](RoleId),
-	Businessid int foreign key references Business(BusinessId),
+	Businessid nchar(10) foreign key references Business(BusinessId),
 	Grouprolestatus bit
 )
 GO

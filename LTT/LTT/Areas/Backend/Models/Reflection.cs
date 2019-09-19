@@ -9,6 +9,11 @@ namespace LTT.Areas.Backend.Models
 {
     public class Reflection
     {
+        /// <summary>
+        /// Method get all controller
+        /// </summary>
+        /// <param name="namespaces">Namespace name</param>
+        /// <returns></returns>
         public List<Type> GetControllers(string namespaces)
         {
             Assembly assembly = Assembly.GetExecutingAssembly();
