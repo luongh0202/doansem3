@@ -8,30 +8,25 @@ using System.Web.Mvc;
 
 namespace LTT.Controllers
 {
-    public class HomeController : Controller
+    public class ProductDetailController : Controller
     {
+        // GET: ProductDetail
         Repository<Product> _product;
-        public HomeController()
+        Repository<Category> _cat;
+        public ProductDetailController()
         {
             _product = new Repository<Product>();
+            _cat = new Repository<Category>();
         }
+
         public ActionResult Index()
         {
             return View(_product.GetAll());
         }
-
-        public ActionResult About()
+        public ActionResult Details(Int32 id)
         {
-            ViewBag.Message = "Your application description page.";
-
-            return View();
-        }
-
-        public ActionResult Contact()
-        {
-            ViewBag.Message = "Your contact page.";
-
-            return View();
+            ViewBag.CategoryId = new SelectList(_cat.GetAll(), "CategoryId", "CategoryName");
+            return View(_product.Get(id));
         }
     }
 }
