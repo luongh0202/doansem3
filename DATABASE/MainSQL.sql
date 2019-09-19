@@ -74,7 +74,7 @@ CREATE TABLE Users (
 GO
 
 CREATE TABLE [Role] (
-	RoleId nchar(10) primary,
+	RoleId nchar(10) primary key,
 	Rolename nvarchar(255) not null,
 	Rolestatus bit not null
 )
