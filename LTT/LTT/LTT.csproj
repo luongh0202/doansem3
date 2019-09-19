@@ -148,6 +148,7 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Areas\Backend\BackendAreaRegistration.cs" />
+    <Compile Include="Areas\Backend\Controllers\BusinessesController.cs" />
     <Compile Include="Areas\Backend\Controllers\CategoryController.cs" />
     <Compile Include="Areas\Backend\Controllers\ContactController.cs" />
     <Compile Include="Areas\Backend\Controllers\HomeController.cs" />
@@ -2372,6 +2373,7 @@
     <Content Include="Areas\Backend\Views\Product\Details.cshtml" />
     <Content Include="Areas\Backend\Views\Oder\Details.cshtml" />
     <Content Include="Areas\Backend\Views\OderDetail\Details.cshtml" />
+    <Content Include="Areas\Backend\Views\Businesses\Index.cshtml" />
     <None Include="packages.config" />
     <Content Include="Views\Users\Index.cshtml" />
     <Content Include="Views\Product\Index.cshtml" />
@@ -2393,6 +2395,9 @@
       <Project>{03495b38-8c1b-49ec-8c77-2341fa88189b}</Project>
       <Name>LTT.Models</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Connected Services\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

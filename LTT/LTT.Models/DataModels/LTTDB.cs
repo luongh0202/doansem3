@@ -5,10 +5,10 @@ namespace LTT.Models.DataModels
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Linq;
 
-    public partial class LTTDBContext : DbContext
+    public partial class LTTDB : DbContext
     {
-        public LTTDBContext()
-            : base("name=LTTDBContext")
+        public LTTDB()
+            : base("name=LTTDB2")
         {
         }
 
@@ -37,6 +37,10 @@ namespace LTT.Models.DataModels
                 .Property(e => e.Password)
                 .IsUnicode(false);
 
+            modelBuilder.Entity<Business>()
+                .Property(e => e.BusinessId)
+                .IsFixedLength();
+
             modelBuilder.Entity<Category>()
                 .Property(e => e.CategoryName)
                 .IsUnicode(false);
@@ -47,6 +51,10 @@ namespace LTT.Models.DataModels
 
             modelBuilder.Entity<Grouprole>()
                 .Property(e => e.Roleid)
+                .IsFixedLength();
+
+            modelBuilder.Entity<Grouprole>()
+                .Property(e => e.Businessid)
                 .IsFixedLength();
 
             modelBuilder.Entity<Oder>()
