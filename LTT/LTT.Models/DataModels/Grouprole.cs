@@ -9,18 +9,22 @@ namespace LTT.Models.DataModels
     [Table("Grouprole")]
     public partial class Grouprole
     {
+        [Key]
+        [Column(Order = 0)]
         [DatabaseGenerated(DatabaseGeneratedOption.None)]
-        public int GroupRoleId { get; set; }
+        public int Groupid { get; set; }
 
-        public int? Groupid { get; set; }
-
+        [Key]
+        [Column(Order = 1)]
         [StringLength(10)]
         public string Roleid { get; set; }
 
+        [Key]
+        [Column(Order = 2)]
         [StringLength(10)]
         public string Businessid { get; set; }
 
-        public bool? Grouprolestatus { get; set; }
+        public int? GrouproleId { get; set; }
 
         public virtual Business Business { get; set; }
 

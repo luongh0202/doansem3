@@ -66,10 +66,8 @@ CREATE TABLE Users (
 	UserId int primary key,
 	Email varchar(255) not null,
 	[Password] varchar(255) not null,
-	Name varchar(255) not null,
-	UserPhone varchar(20) not null,
-	UserAddress text,
-	UserStatus bit
+	[Name] varchar(255) not null,
+	UserAddress text
 )
 GO
 

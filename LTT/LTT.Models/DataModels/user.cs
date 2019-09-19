@@ -23,13 +23,7 @@ namespace LTT.Models.DataModels
         [StringLength(255)]
         public string Name { get; set; }
 
-        [Required]
-        [StringLength(20)]
-        public string UserPhone { get; set; }
-
         [Column(TypeName = "text")]
         public string UserAddress { get; set; }
-
-        public bool? UserStatus { get; set; }
     }
 }

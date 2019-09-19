@@ -8,7 +8,7 @@ namespace LTT.Models.DataModels
     public partial class LTTDB : DbContext
     {
         public LTTDB()
-            : base("name=LTTDB2")
+            : base("name=LTTDB")
         {
         }
 
@@ -41,6 +41,11 @@ namespace LTT.Models.DataModels
                 .Property(e => e.BusinessId)
                 .IsFixedLength();
 
+            modelBuilder.Entity<Business>()
+                .HasMany(e => e.Grouproles)
+                .WithRequired(e => e.Business)
+                .WillCascadeOnDelete(false);
+
             modelBuilder.Entity<Category>()
                 .Property(e => e.CategoryName)
                 .IsUnicode(false);
@@ -56,6 +61,11 @@ namespace LTT.Models.DataModels
             modelBuilder.Entity<Grouprole>()
                 .Property(e => e.Businessid)
                 .IsFixedLength();
+
+            modelBuilder.Entity<Group>()
+                .HasMany(e => e.Grouproles)
+                .WithRequired(e => e.Group)
+                .WillCascadeOnDelete(false);
 
             modelBuilder.Entity<Oder>()
                 .Property(e => e.CodeOder)
@@ -81,6 +91,11 @@ namespace LTT.Models.DataModels
                 .Property(e => e.RoleId)
                 .IsFixedLength();
 
+            modelBuilder.Entity<Role>()
+                .HasMany(e => e.Grouproles)
+                .WithRequired(e => e.Role)
+                .WillCascadeOnDelete(false);
+
             modelBuilder.Entity<User>()
                 .Property(e => e.Email)
                 .IsUnicode(false);
@@ -91,10 +106,6 @@ namespace LTT.Models.DataModels
 
             modelBuilder.Entity<User>()
                 .Property(e => e.Name)
-                .IsUnicode(false);
-
-            modelBuilder.Entity<User>()
-                .Property(e => e.UserPhone)
                 .IsUnicode(false);
 
             modelBuilder.Entity<User>()
