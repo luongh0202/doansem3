@@ -29,6 +29,8 @@ namespace LTT.Models.DataModels
         [StringLength(250)]
         public string UserName { get; set; }
 
+        public double? totalPrice { get; set; }
+
         [Column(TypeName = "text")]
         public string Notes { get; set; }
 

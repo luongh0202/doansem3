@@ -201,7 +201,7 @@
                                                 </div>
 
                                                 <div class="nav-cart-actions mt-20">
-                                                    <a href="shop-cart.html" class="btn btn-md btn-dark"><span>View Cart</span></a>
+                                                    <a href="@Url.Action("Index","Cart")" class="btn btn-md btn-dark"><span>View Cart</span></a>
                                                     <a href="shop-checkout.html" class="btn btn-md btn-color mt-10"><span>Proceed to Checkout</span></a>
                                                 </div>
                                             </div>
@@ -242,39 +242,14 @@
                                         </li>
                                         <!-- end categories -->
                                         <li class="dropdown">
-                                            <a href="#">News</a>
-                                            <i class="fa fa-angle-down dropdown-toggle" data-toggle="dropdown"></i>
-                                            <ul class="dropdown-menu">
-                                                <li>
-                                                    <a href="about-us.html">About Us</a>
-                                                </li>
-                                                <li>
-                                                    <a href="contact.html">Contact</a>
-                                                </li>
-                                                <li>
-                                                    <a href="login.html">Login</a>
-                                                </li>
-                                                <li>
-                                                    <a href="faq.html">F.A.Q</a>
-                                                </li>
-                                                <li>
-                                                    <a href="404.html">404</a>
-                                                </li>
-                                            </ul>
+                                            <a href="@Url.Action("Index","New")">News</a>
+                                            
                                         </li>
 
 
                                         <li class="dropdown">
-                                            <a href="#">Contacts</a>
-                                            <i class="fa fa-angle-down dropdown-toggle" data-toggle="dropdown"></i>
-                                            <ul class="dropdown-menu">
-                                                <li>
-                                                    <a href="blog-standard.html">Standard</a>
-                                                </li>
-                                                <li>
-                                                    <a href="blog-single.html">Single Post</a>
-                                                </li>
-                                            </ul>
+                                            <a href="@Url.Action("Create","Contact")">Contacts</a>
+                                            
                                         </li>
 
                                         <li class="mobile-links">

@@ -9,12 +9,6 @@ namespace LTT.Models.DataModels
     [Table("Business")]
     public partial class Business
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Business()
-        {
-            Grouproles = new HashSet<Grouprole>();
-        }
-
         [StringLength(10)]
         public string BusinessId { get; set; }
 
@@ -23,8 +17,5 @@ namespace LTT.Models.DataModels
         public string Businessname { get; set; }
 
         public bool Businessstatus { get; set; }
-
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Grouprole> Grouproles { get; set; }
     }
 }

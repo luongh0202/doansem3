@@ -68,7 +68,7 @@
                                             <img src="@Html.DisplayFor(modelItem => item.ProductImage)" alt="">
                                         </a>
                                         <div class="product-actions">
-                                            <a href="#" class="product-add-to-wishlist" data-toggle="tooltip" data-placement="bottom" title="Add to Cart">
+                                            <a href="@Url.Action("Index","Cart", new { id = item.ProductId })" class="product-add-to-wishlist" data-toggle="tooltip" data-placement="bottom" title="Add to Cart">
                                                 <i class="fa fa-heart"></i>
                                             </a>
                                         </div>
