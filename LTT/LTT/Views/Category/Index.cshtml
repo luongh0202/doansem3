@@ -1,16 +1,6 @@
-﻿@model IEnumerable<LTT.Models.DataModels.Category>
-
-@{
-    ViewBag.Title = "Index";
-    Layout = "~/Views/Shared/_Layout.cshtml";
-}
+﻿@model LTT.Models.DataModels.Product
 
 
-
-
-    
-
-</table>
 
 <div class="container">
     <ol class="breadcrumb">
@@ -18,549 +8,121 @@
             <a href="index.html">Home</a>
         </li>
         <li>
-            <a href="index.html">Shop</a>
+            <a href="index.html">Product</a>
         </li>
         <li class="active">
-            Catalog Grid
+            @Html.DisplayFor(model => model.Category.CategoryName)
         </li>
     </ol> <!-- end breadcrumbs -->
 </div>
 
 
-<!-- Catalogue -->
-<section class="section-wrap pt-70 pb-40 catalogue">
+<!-- Single Product -->
+<section class="section-wrap single-product">
     <div class="container relative">
+
         <div class="row">
 
-            <div class="col-md-9 catalogue-col right mb-50">
+            <div class="col-sm-6 col-xs-12 mb-60">
 
-                <!-- Banner -->
-                <div class="banner-wrap relative">
-                    <img src="img/banner.jpg" alt="">
-                    <div class="hero-holder text-center right-align">
-                        <div class="hero-lines mb-0">
-                            <h1 class="hero-heading white">Women Collection</h1>
-                            <h4 class="hero-subheading white uppercase">HOT AND FRESH TRENDS OF THIS YEAR</h4>
+                <div class="flickity flickity-slider-wrap mfp-hover" id="gallery-main">
+
+                    <div class="gallery-cell">
+                        <a href="img/shop/single_img_1.jpg" class="lightbox-img">
+                            <img src="@Html.DisplayFor(model => model.ProductImage)" alt="" />
+                            <i class="icon arrow_expand"></i>
+                        </a>
+                    </div>
+
+                </div> <!-- end gallery main -->
+
+
+
+            </div> <!-- end col img slider -->
+
+            <div class="col-sm-6 col-xs-12 product-description-wrap">
+                <h1 class="product-title">@Html.DisplayFor(model => model.ProductName)</h1>
+                <span class="rating">
+                    <a href="#">3 Reviews</a>
+                </span>
+                <span class="price">
+
+                    <ins>
+                        <span class="ammount">@Html.DisplayFor(model => model.price)$</span>
+                    </ins>
+                </span>
+                <p class="product-description">A-ha Shop is a very slick and clean e-commerce template with endless possibilities. Creating an awesome clothes store with this Theme is easy than you can imagine</p>
+
+
+
+                <ul class="product-actions clearfix">
+
+                    <li>
+                        <a href="@Url.Action("Index","Cart")" class="btn btn-color btn-lg add-to-cart left"><span>Add to Cart</span></a>
+                    </li>
+                    <li>
+                        <div class="icon-add-to-wishlist left">
+                            <a href="#"><i class="icon icon_heart_alt"></i></a>
                         </div>
+                    </li>
+                    <li>
+                        <div class="quantity buttons_added">
+                            <input type="button" value="-" class="minus" /><input type="number" step="1" min="0" value="1" title="Qty" class="input-text qty text" /><input type="button" value="+" class="plus" />
+                        </div>
+                    </li>
+                </ul>
+
+                <div class="product_meta">
+                    <span class="sku">SKU: <a href="#">111763</a></span>
+                    <span class="posted_in">Category: <a href="#">Accessories</a></span>
+                    <span class="tagged_as">Tags: <a href="#">Elegant</a>, <a href="#">Bag</a></span>
+                </div>
+
+                <div class="socials-share clearfix">
+                    <div class="social-icons rounded">
+                        <a href="#"><i class="fa fa-twitter"></i></a>
+                        <a href="#"><i class="fa fa-facebook"></i></a>
+                        <a href="#"><i class="fa fa-google-plus"></i></a>
+                        <a href="#"><i class="fa fa-linkedin"></i></a>
+                        <a href="#"><i class="fa fa-vimeo"></i></a>
                     </div>
                 </div>
+            </div> <!-- end col product description -->
+        </div> <!-- end row -->
+        <!-- tabs -->
+        <div class="row">
+            <div class="col-md-12">
+                <div class="tabs tabs-bb">
+                    <ul class="nav nav-tabs">
+                        <li class="active">
+                            <a href="#tab-description" data-toggle="tab">@Html.DisplayNameFor(model => model.ProductDescription)</a>
+                        </li>
+                        <li>
+                            <a href="#tab-info" data-toggle="tab">@Html.DisplayNameFor(model => model.detail)</a>
+                        </li>
+                    </ul> <!-- end tabs -->
+                    <!-- tab content -->
+                    <div class="tab-content">
 
-                <div class="shop-filter">
-                    <p class="result-count">Showing: 1-12 of 80 results</p>
+                        <div class="tab-pane fade in active" id="tab-description">
+                            <p>
+                                @Html.DisplayFor(model => model.ProductDescription)
+                            </p>
+                        </div>
 
-                    <form class="ecommerce-ordering">
-                        <select>
-                            <option value="default-sorting">Default Sorting</option>
-                            <option value="price-low-to-high">Price: high to low</option>
-                            <option value="price-high-to-low">Price: low to high</option>
-                            <option value="by-popularity">By Popularity</option>
-                            <option value="date">By Newness</option>
-                            <option value="rating">By Rating</option>
-                        </select>
-                    </form>
+                        <div class="tab-pane fade" id="tab-info">
+                            <p>
+                                @Html.DisplayFor(model => model.detail)
+                            </p>
+                        </div>
+
+
+
+                    </div> <!-- end tab content -->
+
                 </div>
+            </div> <!-- end tabs -->
+        </div> <!-- end row -->
 
-                <div class="shop-catalogue grid-view left">
-
-                    <div class="row row-10 items-grid">
-
-                        <div class="col-md-4 col-xs-6">
-                            <div class="product-item">
-                                <div class="product-img">
-                                    <a href="#">
-                                        <img src="img/shop/shop_item_1.jpg" alt="">
-                                        <img src="img/shop/shop_item_1_back.jpg" alt="" class="back-img">
-                                    </a>
-                                    <div class="product-label">
-                                        <span class="sale">sale</span>
-                                    </div>
-                                    <div class="product-actions">
-                                        <a href="#" class="product-add-to-compare" data-toggle="tooltip" data-placement="bottom" title="Add to compare">
-                                            <i class="fa fa-exchange"></i>
-                                        </a>
-                                        <a href="#" class="product-add-to-wishlist" data-toggle="tooltip" data-placement="bottom" title="Add to wishlist">
-                                            <i class="fa fa-heart"></i>
-                                        </a>
-                                    </div>
-                                    <a href="#" class="product-quickview">Quick View</a>
-                                </div>
-                                <div class="product-details">
-                                    <h3>
-                                        <a class="product-title" href="shop-single-product.html">Night Party Dress</a>
-                                    </h3>
-                                    <span class="price">
-                                        <del>
-                                            <span>$388.00</span>
-                                        </del>
-                                        <ins>
-                                            <span class="ammount">$159.99</span>
-                                        </ins>
-                                    </span>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="col-md-4 col-xs-6">
-                            <div class="product-item">
-                                <div class="product-img">
-                                    <a href="#">
-                                        <img src="img/shop/shop_item_2.jpg" alt="">
-                                        <img src="img/shop/shop_item_2_back.jpg" alt="" class="back-img">
-                                    </a>
-                                    <div class="product-actions">
-                                        <a href="#" class="product-add-to-compare" data-toggle="tooltip" data-placement="bottom" title="Add to compare">
-                                            <i class="fa fa-exchange"></i>
-                                        </a>
-                                        <a href="#" class="product-add-to-wishlist" data-toggle="tooltip" data-placement="bottom" title="Add to wishlist">
-                                            <i class="fa fa-heart"></i>
-                                        </a>
-                                    </div>
-                                    <a href="#" class="product-quickview">Quick View</a>
-                                </div>
-                                <div class="product-details">
-                                    <h3>
-                                        <a class="product-title" href="shop-single-product.html">Elegant White Dress</a>
-                                    </h3>
-                                    <span class="price">
-                                        <ins>
-                                            <span class="ammount">$219.00</span>
-                                        </ins>
-                                    </span>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="col-md-4 col-xs-6">
-                            <div class="product-item">
-                                <div class="product-img">
-                                    <a href="#">
-                                        <img src="img/shop/shop_item_3.jpg" alt="">
-                                        <img src="img/shop/shop_item_3_back.jpg" alt="" class="back-img">
-                                    </a>
-                                    <span class="sold-out valign">out of stock</span>
-                                    <div class="product-actions">
-                                        <a href="#" class="product-add-to-compare" data-toggle="tooltip" data-placement="bottom" title="Add to compare">
-                                            <i class="fa fa-exchange"></i>
-                                        </a>
-                                        <a href="#" class="product-add-to-wishlist" data-toggle="tooltip" data-placement="bottom" title="Add to wishlist">
-                                            <i class="fa fa-heart"></i>
-                                        </a>
-                                    </div>
-                                    <a href="#" class="product-quickview">Quick View</a>
-                                </div>
-                                <div class="product-details">
-                                    <h3>
-                                        <a class="product-title" href="shop-single-product.html">Long Black Dress</a>
-                                    </h3>
-                                    <span class="price">
-                                        <ins>
-                                            <span class="ammount">$99.00</span>
-                                        </ins>
-                                    </span>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="col-md-4 col-xs-6">
-                            <div class="product-item">
-                                <div class="product-img">
-                                    <a href="#">
-                                        <img src="img/shop/shop_item_4.jpg" alt="">
-                                        <img src="img/shop/shop_item_4_back.jpg" alt="" class="back-img">
-                                    </a>
-                                    <div class="product-actions">
-                                        <a href="#" class="product-add-to-compare" data-toggle="tooltip" data-placement="bottom" title="Add to compare">
-                                            <i class="fa fa-exchange"></i>
-                                        </a>
-                                        <a href="#" class="product-add-to-wishlist" data-toggle="tooltip" data-placement="bottom" title="Add to wishlist">
-                                            <i class="fa fa-heart"></i>
-                                        </a>
-                                    </div>
-                                    <a href="#" class="product-quickview">Quick View</a>
-                                </div>
-                                <div class="product-details">
-                                    <h3>
-                                        <a class="product-title" href="shop-single-product.html">Sexy Pink Dress</a>
-                                    </h3>
-                                    <span class="price">
-                                        <ins>
-                                            <span class="ammount">$120.00</span>
-                                        </ins>
-                                    </span>
-                                </div>
-                            </div>
-                        </div>
-
-
-                        <div class="col-md-4 col-xs-6">
-                            <div class="product-item">
-                                <div class="product-img">
-                                    <a href="#">
-                                        <img src="img/shop/shop_item_5.jpg" alt="">
-                                        <img src="img/shop/shop_item_5_back.jpg" alt="" class="back-img">
-                                    </a>
-                                    <div class="product-actions">
-                                        <a href="#" class="product-add-to-compare" data-toggle="tooltip" data-placement="bottom" title="Add to compare">
-                                            <i class="fa fa-exchange"></i>
-                                        </a>
-                                        <a href="#" class="product-add-to-wishlist" data-toggle="tooltip" data-placement="bottom" title="Add to wishlist">
-                                            <i class="fa fa-heart"></i>
-                                        </a>
-                                    </div>
-                                    <a href="#" class="product-quickview">Quick View</a>
-                                </div>
-
-                                <div class="product-details">
-                                    <h3>
-                                        <a class="product-title" href="shop-single-product.html">Minty Dress</a>
-                                    </h3>
-                                    <span class="price">
-                                        <ins>
-                                            <span class="ammount">$399.00</span>
-                                        </ins>
-                                    </span>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="col-md-4 col-xs-6">
-                            <div class="product-item">
-                                <div class="product-img">
-                                    <a href="#">
-                                        <img src="img/shop/shop_item_6.jpg" alt="">
-                                        <img src="img/shop/shop_item_6_back.jpg" alt="" class="back-img">
-                                    </a>
-                                    <div class="product-label">
-                                        <span class="sale">sale</span>
-                                    </div>
-                                    <div class="product-actions">
-                                        <a href="#" class="product-add-to-compare" data-toggle="tooltip" data-placement="bottom" title="Add to compare">
-                                            <i class="fa fa-exchange"></i>
-                                        </a>
-                                        <a href="#" class="product-add-to-wishlist" data-toggle="tooltip" data-placement="bottom" title="Add to wishlist">
-                                            <i class="fa fa-heart"></i>
-                                        </a>
-                                    </div>
-                                    <a href="#" class="product-quickview">Quick View</a>
-                                </div>
-
-                                <div class="product-details">
-                                    <h3>
-                                        <a class="product-title" href="shop-single-product.html">Sexy White Dress</a>
-                                    </h3>
-                                    <span class="price">
-                                        <ins>
-                                            <span class="ammount">$119.00</span>
-                                        </ins>
-                                    </span>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="col-md-4 col-xs-6">
-                            <div class="product-item">
-                                <div class="product-img">
-                                    <a href="#">
-                                        <img src="img/shop/shop_item_7.jpg" alt="">
-                                        <img src="img/shop/shop_item_7_back.jpg" alt="" class="back-img">
-                                    </a>
-                                    <div class="product-actions">
-                                        <a href="#" class="product-add-to-compare" data-toggle="tooltip" data-placement="bottom" title="Add to compare">
-                                            <i class="fa fa-exchange"></i>
-                                        </a>
-                                        <a href="#" class="product-add-to-wishlist" data-toggle="tooltip" data-placement="bottom" title="Add to wishlist">
-                                            <i class="fa fa-heart"></i>
-                                        </a>
-                                    </div>
-                                    <a href="#" class="product-quickview">Quick View</a>
-                                </div>
-
-                                <div class="product-details">
-                                    <h3>
-                                        <a class="product-title" href="shop-single-product.html">Elegant Pink Dress</a>
-                                    </h3>
-                                    <span class="price">
-                                        <ins>
-                                            <span class="ammount">$1379.00</span>
-                                        </ins>
-                                    </span>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="col-md-4 col-xs-6">
-                            <div class="product-item">
-                                <div class="product-img">
-                                    <a href="#">
-                                        <img src="img/shop/shop_item_8.jpg" alt="">
-                                        <img src="img/shop/shop_item_8_back.jpg" alt="" class="back-img">
-                                    </a>
-                                    <div class="product-label">
-                                        <span class="sale">sale</span>
-                                    </div>
-                                    <div class="product-actions">
-                                        <a href="#" class="product-add-to-compare" data-toggle="tooltip" data-placement="bottom" title="Add to compare">
-                                            <i class="fa fa-exchange"></i>
-                                        </a>
-                                        <a href="#" class="product-add-to-wishlist" data-toggle="tooltip" data-placement="bottom" title="Add to wishlist">
-                                            <i class="fa fa-heart"></i>
-                                        </a>
-                                    </div>
-                                    <a href="#" class="product-quickview">Quick View</a>
-                                </div>
-
-                                <div class="product-details">
-                                    <h3>
-                                        <a class="product-title" href="shop-single-product.html">Gray California Dress</a>
-                                    </h3>
-                                    <span class="price">
-                                        <del>
-                                            <span>$350.00</span>
-                                        </del>
-                                        <ins>
-                                            <span class="ammount">$150.00</span>
-                                        </ins>
-                                    </span>
-                                </div>
-
-                            </div>
-                        </div>
-
-
-                        <div class="col-md-4 col-xs-6">
-                            <div class="product-item">
-                                <div class="product-img">
-                                    <a href="#">
-                                        <img src="img/shop/shop_item_9.jpg" alt="">
-                                        <img src="img/shop/shop_item_9_back.jpg" alt="" class="back-img">
-                                    </a>
-                                    <div class="product-actions">
-                                        <a href="#" class="product-add-to-compare" data-toggle="tooltip" data-placement="bottom" title="Add to compare">
-                                            <i class="fa fa-exchange"></i>
-                                        </a>
-                                        <a href="#" class="product-add-to-wishlist" data-toggle="tooltip" data-placement="bottom" title="Add to wishlist">
-                                            <i class="fa fa-heart"></i>
-                                        </a>
-                                    </div>
-                                    <a href="#" class="product-quickview">Quick View</a>
-                                </div>
-
-                                <div class="product-details">
-                                    <h3>
-                                        <a class="product-title" href="shop-single-product.html">Minty Dress</a>
-                                    </h3>
-                                    <span class="price">
-                                        <ins>
-                                            <span class="ammount">$399.00</span>
-                                        </ins>
-                                    </span>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="col-md-4 col-xs-6">
-                            <div class="product-item">
-                                <div class="product-img">
-                                    <a href="#">
-                                        <img src="img/shop/shop_item_10.jpg" alt="">
-                                        <img src="img/shop/shop_item_10_back.jpg" alt="" class="back-img">
-                                    </a>
-                                    <div class="product-label">
-                                        <span class="sale">sale</span>
-                                    </div>
-                                    <div class="product-actions">
-                                        <a href="#" class="product-add-to-compare" data-toggle="tooltip" data-placement="bottom" title="Add to compare">
-                                            <i class="fa fa-exchange"></i>
-                                        </a>
-                                        <a href="#" class="product-add-to-wishlist" data-toggle="tooltip" data-placement="bottom" title="Add to wishlist">
-                                            <i class="fa fa-heart"></i>
-                                        </a>
-                                    </div>
-                                    <a href="#" class="product-quickview">Quick View</a>
-                                </div>
-
-                                <div class="product-details">
-                                    <h3>
-                                        <a class="product-title" href="shop-single-product.html">Sexy White Dress</a>
-                                    </h3>
-                                    <span class="price">
-                                        <ins>
-                                            <span class="ammount">$119.00</span>
-                                        </ins>
-                                    </span>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="col-md-4 col-xs-6">
-                            <div class="product-item">
-                                <div class="product-img">
-                                    <a href="#">
-                                        <img src="img/shop/shop_item_11.jpg" alt="">
-                                        <img src="img/shop/shop_item_11_back.jpg" alt="" class="back-img">
-                                    </a>
-                                    <div class="product-actions">
-                                        <a href="#" class="product-add-to-compare" data-toggle="tooltip" data-placement="bottom" title="Add to compare">
-                                            <i class="fa fa-exchange"></i>
-                                        </a>
-                                        <a href="#" class="product-add-to-wishlist" data-toggle="tooltip" data-placement="bottom" title="Add to wishlist">
-                                            <i class="fa fa-heart"></i>
-                                        </a>
-                                    </div>
-                                    <a href="#" class="product-quickview">Quick View</a>
-                                </div>
-
-                                <div class="product-details">
-                                    <h3>
-                                        <a class="product-title" href="shop-single-product.html">Elegant Pink Dress</a>
-                                    </h3>
-                                    <span class="price">
-                                        <ins>
-                                            <span class="ammount">$1379.00</span>
-                                        </ins>
-                                    </span>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="col-md-4 col-xs-6">
-                            <div class="product-item">
-                                <div class="product-img">
-                                    <a href="#">
-                                        <img src="img/shop/shop_item_12.jpg" alt="">
-                                        <img src="img/shop/shop_item_12_back.jpg" alt="" class="back-img">
-                                    </a>
-                                    <div class="product-label">
-                                        <span class="sale">sale</span>
-                                    </div>
-                                    <div class="product-actions">
-                                        <a href="#" class="product-add-to-compare" data-toggle="tooltip" data-placement="bottom" title="Add to compare">
-                                            <i class="fa fa-exchange"></i>
-                                        </a>
-                                        <a href="#" class="product-add-to-wishlist" data-toggle="tooltip" data-placement="bottom" title="Add to wishlist">
-                                            <i class="fa fa-heart"></i>
-                                        </a>
-                                    </div>
-                                    <a href="#" class="product-quickview">Quick View</a>
-                                </div>
-
-                                <div class="product-details">
-                                    <h3>
-                                        <a class="product-title" href="shop-single-product.html">Gray California Dress</a>
-                                    </h3>
-                                    <span class="price">
-                                        <del>
-                                            <span>$350.00</span>
-                                        </del>
-                                        <ins>
-                                            <span class="ammount">$150.00</span>
-                                        </ins>
-                                    </span>
-                                </div>
-
-                            </div>
-                        </div>
-
-                    </div> <!-- end row -->
-                </div> <!-- end grid mode -->
-
-                <div class="clear"></div>
-
-                <!-- Pagination -->
-                <div class="pagination-wrap">
-                    <p class="result-count">Showing: 1-12 of 80 results</p>
-                    <nav class="pagination right clear">
-                        <a href="#"><i class="fa fa-angle-left"></i></a><span class="page-numbers current">
-                            1
-                        </span><a href="#">
-                            2
-                        </a><a href="#">
-                            3
-                        </a><a href="#">
-                            4
-                        </a><a href="#">
-                            <i class="fa fa-angle-right"></i>
-                        </a>
-                    </nav>
-                </div>
-
-            </div> <!-- end col -->
-            <!-- Sidebar -->
-            <aside class="col-md-3 sidebar left-sidebar">
-
-                <!-- Categories -->
-                <div class="widget categories">
-                    <h3 class="widget-title uppercase">Categories</h3>
-                    <ul class="list-no-dividers">
-                        <li>
-                            
-                            @foreach (var item in Model)
-                            {
-                                <tr>
-                                    <td>
-                                        @Html.DisplayFor(modelItem => item.CategoryName)
-                                    </td>
-                                    
-
-                                </tr>
-                            }
-                        </li>
-                        
-                    </ul>
-                </div>
-
-                <!-- Select size -->
-                <div class="widget categories">
-                    <h3 class="widget-title uppercase">Select size</h3>
-                    <ul class="list-no-dividers">
-                        <li>
-                            <a href="#">Large</a>
-                        </li>
-                        <li>
-                            <a href="#">Medium</a>
-                        </li>
-                        <li>
-                            <a href="#">Small</a>
-                        </li>
-                        <li>
-                            <a href="#">X-Large</a>
-                        </li>
-                        <li>
-                            <a href="#">X-Small</a>
-                        </li>
-                    </ul>
-                </div>
-
-                <!-- Select color -->
-                <div class="widget categories">
-                    <h3 class="widget-title uppercase">Select color</h3>
-                    <ul class="list-no-dividers">
-                        <li>
-                            <a href="#">White</a>
-                        </li>
-                        <li>
-                            <a href="#">Grey</a>
-                        </li>
-                        <li>
-                            <a href="#">Black</a>
-                        </li>
-                        <li>
-                            <a href="#">Pink</a>
-                        </li>
-                        <li>
-                            <a href="#">Green</a>
-                        </li>
-                    </ul>
-                </div>
-
-                <!-- Filter by Price -->
-                <div class="widget filter-by-price clearfix">
-                    <h3 class="widget-title uppercase">Filter by Price</h3>
-
-                    <div id="slider-range"></div>
-                    <p>
-                        <label for="amount">Price:</label>
-                        <input type="text" id="amount" readonly style="border:0;">
-                        <a href="#" class="btn btn-sm btn-dark">Filter</a>
-                    </p>
-                </div>
+    </div> <!-- end container -->
+</section> <!-- end single product -->

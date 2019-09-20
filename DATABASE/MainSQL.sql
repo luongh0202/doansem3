@@ -16,6 +16,7 @@ CREATE TABLE Oder (
 	CodeOder varchar(50) not null,
 	CodeProduct varchar(50) not null,
 	UserName nvarchar(250) not null,
+	totalPrice float,
 	Notes text
 )
 go

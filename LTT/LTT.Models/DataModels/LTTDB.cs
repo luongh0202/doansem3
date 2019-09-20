@@ -17,7 +17,6 @@ namespace LTT.Models.DataModels
         public virtual DbSet<Business> Businesses { get; set; }
         public virtual DbSet<Category> Categories { get; set; }
         public virtual DbSet<Contact> Contacts { get; set; }
-        public virtual DbSet<Grouprole> Grouproles { get; set; }
         public virtual DbSet<Group> Groups { get; set; }
         public virtual DbSet<News> News { get; set; }
         public virtual DbSet<Oder> Oders { get; set; }
@@ -41,11 +40,6 @@ namespace LTT.Models.DataModels
                 .Property(e => e.BusinessId)
                 .IsFixedLength();
 
-            modelBuilder.Entity<Business>()
-                .HasMany(e => e.Grouproles)
-                .WithRequired(e => e.Business)
-                .WillCascadeOnDelete(false);
-
             modelBuilder.Entity<Category>()
                 .Property(e => e.CategoryName)
                 .IsUnicode(false);
@@ -53,19 +47,6 @@ namespace LTT.Models.DataModels
             modelBuilder.Entity<Category>()
                 .Property(e => e.Notes)
                 .IsUnicode(false);
-
-            modelBuilder.Entity<Grouprole>()
-                .Property(e => e.Roleid)
-                .IsFixedLength();
-
-            modelBuilder.Entity<Grouprole>()
-                .Property(e => e.Businessid)
-                .IsFixedLength();
-
-            modelBuilder.Entity<Group>()
-                .HasMany(e => e.Grouproles)
-                .WithRequired(e => e.Group)
-                .WillCascadeOnDelete(false);
 
             modelBuilder.Entity<Oder>()
                 .Property(e => e.CodeOder)
@@ -90,11 +71,6 @@ namespace LTT.Models.DataModels
             modelBuilder.Entity<Role>()
                 .Property(e => e.RoleId)
                 .IsFixedLength();
-
-            modelBuilder.Entity<Role>()
-                .HasMany(e => e.Grouproles)
-                .WithRequired(e => e.Role)
-                .WillCascadeOnDelete(false);
 
             modelBuilder.Entity<User>()
                 .Property(e => e.Email)

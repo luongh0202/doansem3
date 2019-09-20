@@ -41,7 +41,7 @@
             </div> <!-- end col img slider -->
 
             <div class="col-sm-6 col-xs-12 product-description-wrap">
-                <h1 class="product-title">Summer Dress</h1>
+                <h1 class="product-title">@Html.DisplayFor(model => model.ProductName)</h1>
                 <span class="rating">
                     <a href="#">3 Reviews</a>
                 </span>
@@ -58,7 +58,7 @@
                 <ul class="product-actions clearfix">
 
                     <li>
-                        <a href="#" class="btn btn-color btn-lg add-to-cart left"><span>Add to Cart</span></a>
+                        <a href="@Url.Action("Index","Cart")" class="btn btn-color btn-lg add-to-cart left"><span>Add to Cart</span></a>
                     </li>
                     <li>
                         <div class="icon-add-to-wishlist left">

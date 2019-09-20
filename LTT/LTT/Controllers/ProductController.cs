@@ -22,5 +22,6 @@ namespace LTT.Controllers
         {
             return View(_product.GetAll());
         }
+      
     }
 }
