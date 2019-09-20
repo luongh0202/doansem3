@@ -84,19 +84,20 @@ CREATE TABLE Business (
 )
 GO
 CREATE TABLE Groups (
-	GroupId int primary key,
+	GroupId int primary key identity,
 	Groupname nvarchar(255),
 	Groupstatus bit 
 )
 GO
 CREATE TABLE Grouprole (
+	Grouproleid int primary key identity,
 	Groupid int foreign key references Groups(GroupId),
 	Roleid nchar(10) foreign key references [Role](RoleId),
-	Businessid nchar(10) foreign key references Business(BusinessId)
+	Businessid nchar(10) foreign key references Business(BusinessId),
 )
 GO
 CREATE TABLE [Admins] (
-	AdminId int primary key,
+	AdminId int primary key identity,
 	Account varchar(255) not null,
 	UserName nvarchar(255) not null,
 	[Password] varchar(255) not null,
@@ -121,5 +122,14 @@ VALUES ('UPDATE','Sua',1)
 INSERT INTO [dbo].[Role] ([RoleId],[Rolename],[Rolestatus])
 VALUES ('DELETE','Xoa',1)
 GO
-select * from Category
-select * from Products
+
+INSERT INTO [dbo].[Groups] ([Groupname] ,[Groupstatus])
+VALUES ('ADMIN' , 1)
+INSERT INTO [dbo].[Groups] ([Groupname] ,[Groupstatus])
+VALUES ('USER' , 1)
+GO
+INSERT INTO [dbo].[Admins] ([Account] ,[UserName] ,[Password] ,[Groupid] ,[UserStatus])
+VALUES ('admin' ,'luong' ,'1234' ,1 ,1)
+INSERT INTO [dbo].[Admins] ([Account] ,[UserName] ,[Password] ,[Groupid] ,[UserStatus])
+VALUES ('admin' ,'tien' ,'1234' ,2 ,1)
+GO

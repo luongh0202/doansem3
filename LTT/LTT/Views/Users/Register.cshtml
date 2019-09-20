@@ -1,1 +1,74 @@
-﻿
+﻿@model LTT.Models.ViewModels.UserRegister
+    @{
+        ViewBag.Title = "Register";
+        Layout = "~/Views/Shared/_Layout.cshtml";
+    }
+    <!-- Page Title -->
+    <section class="page-title text-center">
+        <div class="container relative clearfix">
+            <div class="title-holder">
+                <div class="title-text">
+                    <h1 class="uppercase">Register</h1>
+                </div>
+            </div>
+        </div>
+    </section> <!-- end page title -->
+    <!-- register -->
+    <section class="section-wrap login-register pt-0 pb-40">
+        <div class="container">
+            <div class="row center_custom">
+                <div class="col-sm-5">
+                    @if (ViewBag.err != null)
+                    {
+                        <p class="alert alert-danger">@ViewBag.err</p>
+                    }
+                    @using (Html.BeginForm())
+                    {
+                        <div class="register">
+                            <p class="form-row form-row-wide">
+                                <label>
+                                    Email
+                                    <abbr class="required" title="required">*</abbr>
+                                </label>
+                                @Html.EditorFor(model => model.Email, new { htmlAttributes = new { @class = "input-text" } })
+                                @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
+                            </p>
+                            <p class="form-row form-row-wide">
+                                <label>
+                                    Name
+                                    <abbr class="required" title="required">*</abbr>
+                                </label>
+                                @Html.EditorFor(model => model.Name, new { htmlAttributes = new { @class = "input-text" } })
+                                @Html.ValidationMessageFor(model => model.Name, "", new { @class = "text-danger" })
+                            </p>
+                            <p class="form-row form-row-wide">
+                                <label>
+                                    Address
+                                    <abbr class="required" title="required">*</abbr>
+                                </label>
+                                @Html.EditorFor(model => model.UserAddress, new { htmlAttributes = new { @class = "input-text" } })
+                                @Html.ValidationMessageFor(model => model.UserAddress, "", new { @class = "text-danger" })
+                            </p>
+                            <p class="form-row form-row-wide">
+                                <label>
+                                    Password
+                                    <abbr class="required" title="required">*</abbr>
+                                </label>
+                                @Html.EditorFor(model => model.Password, new { htmlAttributes = new { @class = "input-text", @type = "password" } })
+                                @Html.ValidationMessageFor(model => model.Password, "", new { @class = "text-danger" })
+                            </p>
+                            <p class="form-row form-row-wide">
+                                <label>
+                                    Re-Password
+                                    <abbr class="required" title="required">*</abbr>
+                                </label>
+                                @Html.EditorFor(model => model.ConfirmPassword, new { htmlAttributes = new { @class = "input-text", @type = "password" } })
+                                @Html.ValidationMessageFor(model => model.ConfirmPassword, "", new { @class = "text-danger" })
+                            </p>
+                            <input type="submit" value="Register" class="btn">
+                        </div>
+                    }
+                    </div>
+            </div>
+        </div>
+    </section> <!-- end register -->

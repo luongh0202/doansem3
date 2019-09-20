@@ -6,7 +6,7 @@ using System.Web.Mvc;
 
 namespace LTT.Areas.Backend.Controllers
 {
-    public class UserController : Controller
+    public class UserController : BaseController
     {
         // GET: Backend/User
         public ActionResult Index()

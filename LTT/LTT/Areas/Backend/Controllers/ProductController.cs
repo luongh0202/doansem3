@@ -1,4 +1,5 @@
-﻿using LTT.BAL.Repositories;
+﻿using LTT.Areas.Backend.Models;
+using LTT.BAL.Repositories;
 using LTT.Models.DataModels;
 using System;
 using System.Collections.Generic;
@@ -9,7 +10,7 @@ using System.Web.Mvc;
 
 namespace LTT.Areas.Backend.Controllers
 {
-    public class ProductController : Controller
+    public class ProductController : BaseController
     {
         // GET: Backend/Product
         Repository<Product> _product;
@@ -20,6 +21,7 @@ namespace LTT.Areas.Backend.Controllers
             _product = new Repository<Product>();
             _cat = new Repository<Category>();
         }
+        [CustomizeAuth(Roles = "VIEW")]
         public ActionResult Index()
         {
             return View(_product.GetAll());

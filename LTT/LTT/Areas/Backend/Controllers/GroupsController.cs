@@ -11,7 +11,7 @@ using Group = LTT.Models.DataModels.Group;
 namespace LTT.Areas.Backend.Controllers
 {
     // GET: Backend/Groups
-    public class GroupsController : Controller
+    public class GroupsController : BaseController
     {
         Repository<Group> _group;
         Repository<Business> _business;

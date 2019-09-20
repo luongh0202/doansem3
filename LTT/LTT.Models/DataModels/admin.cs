@@ -8,7 +8,6 @@ namespace LTT.Models.DataModels
 
     public partial class Admin
     {
-        [DatabaseGenerated(DatabaseGeneratedOption.None)]
         public int AdminId { get; set; }
 
         [Required]

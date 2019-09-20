@@ -8,7 +8,7 @@ using System.Web.Mvc;
 
 namespace LTT.Areas.Backend.Controllers
 {
-    public class NewController : Controller
+    public class NewController : BaseController
     {
         Repository<News> _new;
         public NewController()

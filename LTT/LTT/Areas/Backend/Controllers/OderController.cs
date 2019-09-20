@@ -8,7 +8,7 @@ using System.Web.Mvc;
 
 namespace LTT.Areas.Backend.Controllers
 {
-    public class OderController : Controller
+    public class OderController : BaseController
     {
         Repository<Oder> _oder;
         public OderController()

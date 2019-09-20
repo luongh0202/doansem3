@@ -9,7 +9,7 @@ using System.Web.Mvc;
 
 namespace LTT.Areas.Backend.Controllers
 {
-    public class BusinessesController : Controller
+    public class BusinessesController : BaseController
     {
         Repository<Business> _business;
         public BusinessesController()
@@ -33,7 +33,7 @@ namespace LTT.Areas.Backend.Controllers
                     Business b = new Business()
                     {
                         BusinessId = item,
-                        Businessname = "Đang cập nhật",
+                        Businessname = item,
                         Businessstatus = true
                     };
                     _business.Add(b);

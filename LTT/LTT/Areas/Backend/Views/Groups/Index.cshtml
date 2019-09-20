@@ -81,6 +81,7 @@
 @section scripts{
     <script>
         $(function () {
+            $(".item_role").prop("checked", false);
             $(".item_group").click(function () {
                 $(this).addClass("active").siblings().removeClass("active");
                 var id = $(this).data("groupid");
@@ -88,7 +89,6 @@
                     type: "GET",
                     url: "/GroupRoles/GetRoles/" + id,
                     success: function (res) {
-                        console.log(res);
                         $(".item_role").prop("checked", false);
                         $.each(res, function () {
                             $(".item_role[value='" + this.RoleId + "'][data-business='" + this.BusinessId + "']").prop("checked", true);
@@ -106,7 +106,6 @@
                         RoleId: $(this).val(),
                         BusinessId: $(this).data("business")
                     };
-                    console.log(group_role);
                     $.ajax({
                         type: "POST",
                         url: "/GroupRoles/UpdatePermission",
@@ -117,6 +116,7 @@
                     })
                 } else {
                     alert("Vui lòng chọn nhóm quyền!");
+                    $(".item_role").prop("checked", false);
                 }
             })
         })

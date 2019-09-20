@@ -25,16 +25,24 @@ namespace LTT.BAL.Repositories
                 db.SaveChanges();
                 return true;
             }
-            catch (Exception ex)
+            catch (Exception)
             {
-
                 return false;
             }
         }
 
-        public object GetBy(Func<object, bool> p)
+        public bool AddRange(IEnumerable<TEntity> entities)
         {
-            throw new NotImplementedException();
+            try
+            {
+                tbl.AddRange(entities);
+                db.SaveChanges();
+                return true;
+            }
+            catch (Exception)
+            {
+                return false;
+            }
         }
 
         public bool Edit(TEntity entity)
@@ -45,14 +53,13 @@ namespace LTT.BAL.Repositories
                 db.SaveChanges();
                 return true;
             }
-            catch (Exception ex)
+            catch (Exception)
             {
-
                 return false;
             }
         }
 
-        public TEntity Get(Int32 id)
+        public TEntity Get(object id)
         {
             return tbl.Find(id);
         }
@@ -62,7 +69,12 @@ namespace LTT.BAL.Repositories
             return tbl;
         }
 
-        public bool Remove(Int32 id)
+        public IEnumerable<TEntity> GetBy(Func<TEntity, bool> predicate)
+        {
+            return tbl.Where(predicate);
+        }
+
+        public bool Remove(object id)
         {
             try
             {
@@ -72,7 +84,34 @@ namespace LTT.BAL.Repositories
             }
             catch (Exception)
             {
+                return false;
+            }
+        }
 
+        public bool Remove(TEntity entity)
+        {
+            try
+            {
+                tbl.Remove(entity);
+                db.SaveChanges();
+                return true;
+            }
+            catch (Exception)
+            {
+                return false;
+            }
+        }
+
+        public bool RemoveRange(IEnumerable<TEntity> entities)
+        {
+            try
+            {
+                tbl.RemoveRange(entities);
+                db.SaveChanges();
+                return true;
+            }
+            catch (Exception)
+            {
                 return false;
             }
         }

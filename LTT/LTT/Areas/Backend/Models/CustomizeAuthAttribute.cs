@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using System.Web.Routing;
 
 namespace LTT.Areas.Backend.Models
 {
@@ -49,8 +50,8 @@ namespace LTT.Areas.Backend.Models
         }
         protected override void HandleUnauthorizedRequest(AuthorizationContext filterContext)
         {
-            // Nếu muốn xử lý ko có quyền truy cập thì điều hướng đến trang khác
-            // thì xử lý ở đây
+            filterContext.Result = new RedirectToRouteResult(new
+                    RouteValueDictionary(new { controller = "Home", action = "Index", Area = "Backend" }));
             base.HandleUnauthorizedRequest(filterContext);
         }
     }

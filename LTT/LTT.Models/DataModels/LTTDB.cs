@@ -17,6 +17,7 @@ namespace LTT.Models.DataModels
         public virtual DbSet<Business> Businesses { get; set; }
         public virtual DbSet<Category> Categories { get; set; }
         public virtual DbSet<Contact> Contacts { get; set; }
+        public virtual DbSet<Grouprole> Grouproles { get; set; }
         public virtual DbSet<Group> Groups { get; set; }
         public virtual DbSet<News> News { get; set; }
         public virtual DbSet<Oder> Oders { get; set; }
@@ -47,6 +48,14 @@ namespace LTT.Models.DataModels
             modelBuilder.Entity<Category>()
                 .Property(e => e.Notes)
                 .IsUnicode(false);
+
+            modelBuilder.Entity<Grouprole>()
+                .Property(e => e.Roleid)
+                .IsFixedLength();
+
+            modelBuilder.Entity<Grouprole>()
+                .Property(e => e.Businessid)
+                .IsFixedLength();
 
             modelBuilder.Entity<Oder>()
                 .Property(e => e.CodeOder)

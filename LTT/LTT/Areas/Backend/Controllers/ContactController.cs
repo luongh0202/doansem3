@@ -8,7 +8,7 @@ using System.Web.Mvc;
 
 namespace LTT.Areas.Backend.Controllers
 {
-    public class ContactController : Controller
+    public class ContactController : BaseController
     {
         Repository<Contact> _contact;
         public ContactController()

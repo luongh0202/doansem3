@@ -149,6 +149,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Areas\Backend\BackendAreaRegistration.cs" />
     <Compile Include="Areas\Backend\Controllers\AccountsController.cs" />
+    <Compile Include="Areas\Backend\Controllers\BaseController.cs" />
     <Compile Include="Areas\Backend\Controllers\BusinessesController.cs" />
     <Compile Include="Areas\Backend\Controllers\CategoryController.cs" />
     <Compile Include="Areas\Backend\Controllers\ContactController.cs" />
@@ -2048,8 +2049,8 @@
     <Folder Include="App_Data\" />
     <Folder Include="Areas\Backend\Content\upload_imgs\" />
     <Folder Include="Areas\Backend\Views\Account\" />
+    <Folder Include="Areas\Backend\Views\Base\" />
     <Folder Include="Areas\Backend\Views\GroupRolesController\" />
-    <Folder Include="Areas\Backend\Views\Groups\" />
     <Folder Include="Areas\Backend\Views\User\" />
   </ItemGroup>
   <ItemGroup>
@@ -2471,6 +2472,8 @@
     <Content Include="Areas\Backend\Views\New\Index.cshtml" />
     <Content Include="Areas\Backend\Views\New\Create.cshtml" />
     <Content Include="Areas\Backend\Views\New\Edit.cshtml" />
+    <Content Include="Areas\Backend\Views\Groups\Index.cshtml" />
+    <Content Include="Areas\Backend\Views\Accounts\Login.cshtml" />
     <None Include="packages.config" />
     <Content Include="Views\Users\Index.cshtml" />
     <Content Include="Views\Product\Index.cshtml" />
